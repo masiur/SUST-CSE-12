@@ -11,11 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-	return Redirect::route('dashboard');
-});
+Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
 
-Route::get('/home', ['as' => 'home2', 'uses' => 'HomeController@index']); // for post password reset redirection
+Route::get('/home', ['as' => 'home2', 'uses' => 'HomeController@index2']); // for post password reset redirection
 
 
 

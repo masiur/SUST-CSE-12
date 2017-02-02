@@ -14,11 +14,21 @@ class HomeController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
+
      */
     public function index()
     {
-        return $notices = Notice::all();
-        return redirect()->route('login');
+        return view('index')
+                    ->with('title','Home')
+                    ->with('user', Auth::user());
+    }
+    public function index2()
+    {
+        // return $notices = Notice::all();
+        // return redirect()->route('login');
+        return view('index')
+                    ->with('title','Home')
+                    ->with('user', Auth::user());
     }
 
     public function dashboard(){

@@ -1,0 +1,130 @@
+/* Styles Switcher */
+
+#style-demo-switcher h3 {
+  color: #fff;
+  font-size: 12px;
+  margin: 5px 0 -3px 3px;
+}
+
+#style-demo-switcher {
+  background: #222;
+  width: 150px;
+  position: fixed;
+  top: 168px;
+  z-index: 9999;
+  left: 0px;
+  border-radius: 0 0 3px 0;
+}
+
+#style-demo-switcher div {
+  padding: 5px 10px;
+}
+
+#style-demo-switcher h4 {
+  color: #FFFFFF;
+  padding: 0;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  line-height: 20px;
+  font-variant: uppercase;
+  padding: 3px 0 3px 14px;
+  margin: 7px 0 0 0;
+}
+
+#style-demo-switcher h4 a {
+  background: #222222;
+  display: block;
+  height: 41px;
+  position: absolute;
+  right: -39px;
+  top: 0;
+  width: 39px;
+}
+
+#style-demo-switcher h4 a span {
+  font-size: 20px;
+  color: #ffffff;
+  position: absolute;
+  top: 10px;
+  left: 8px;
+}
+
+.colors-list {
+  padding-left: 7px;
+}
+
+.colors-list {
+  list-style: none;
+  margin: 0px 0px 10px 0px;
+  overflow: hidden;
+}
+
+.colors-list li {
+  float: left;
+  margin: 4px;
+}
+
+.colors-list li a {
+  display: block;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+}
+
+.layout-style select {
+  width: 100%;
+  padding: 5px;
+  border: none;
+  margin: 0 0 0 -5px;
+  color: #fff;
+  cursor: pointer;
+}
+
+#reset {
+  margin: 0 0 15px 2px;
+}
+
+#reset a {
+  color: #fff;
+  font-size: 12px;
+}
+
+.style-sheet-1 {
+  background: #c37633;
+}
+
+.style-sheet-2 {
+  background: #296cc7;
+}
+
+.style-sheet-3 {
+  background: #899c1c;
+}
+
+.style-sheet-4 {
+  background: #6d5ad2;
+}
+
+.style-sheet-5 {
+  background: #e08bae;
+}
+
+.style-sheet-6 {
+  background: #a94442;
+}
+
+.colors-list li a.active {
+  box-shadow: 0 0 0px 2px #fff;
+}
+
+.icon-2x{
+	color: #fff;
+  font-size:22px;
+  line-height:30px;
+}
+
+@media only screen and (max-width: 768px) {
+  #style-demo-switcher {
+    display: none;
+  }
+}
