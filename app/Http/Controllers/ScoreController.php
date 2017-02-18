@@ -23,7 +23,7 @@ class ScoreController extends Controller
     public function show(Request $request)
     {
         try{
-            $score = Score::where('url', 'LIKE', $request->link)->first();
+            $score = Score::where('url', $request->link)->first();
             if($score != null){
                 return Response::json(['message' => 'Success','score' => $score ], 200);
             }else{
