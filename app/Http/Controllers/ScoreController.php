@@ -24,9 +24,10 @@ class ScoreController extends Controller
     {
         try{
             $score = Score::where('url', $linkV)->first();
-            $finalScore = $score->score_one + $score->score_two + $score->score_three + $score->score_four + $score->score_five;
-            $finalScore = $finalScore/5;
+            
             if($score != null){
+                    $finalScore = $score->score_one + $score->score_two + $score->score_three + $score->score_four + $score->score_five;
+                    $finalScore = $finalScore/5;
                 return Response::json(['message' => 'Success','score' => 0], 200);
             }else{
                 return Response::json(['message' => 'No data Found','score' => $finalScore ], 200);
