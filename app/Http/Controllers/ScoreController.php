@@ -72,7 +72,7 @@ class ScoreController extends Controller
 
                     $ss->save();
 
-                return Response::json(['success' => 'Goal Posted Successfully'], 200);
+                return Response::json(['success' => 'Posted Successfully'], 200);
 
             }else{
                 $ss =Score::where('url', 'LIKE', $request->link)->first();
@@ -93,7 +93,7 @@ class ScoreController extends Controller
                 }
 
                 $ss->save();
-                return Response::json(['success' => 'Goal Posted Successfully'], 200);
+                return Response::json(['success' => 'Posted Successfully'], 200);
             }
 
         }catch (Exception $e){
