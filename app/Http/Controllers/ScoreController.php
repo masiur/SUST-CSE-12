@@ -28,9 +28,9 @@ class ScoreController extends Controller
             if($score != null){
                     $finalScore = $score->score_one + $score->score_two + $score->score_three + $score->score_four + $score->score_five;
                     $finalScore = $finalScore/5;
-                return Response::json(['message' => 'Success','score' => 0], 200);
+                return Response::json(['message' => 'Success','score' => $finalScore], 200);
             }else{
-                return Response::json(['message' => 'No data Found','score' => $finalScore ], 200);
+                return Response::json(['message' => 'No data Found','score' => 0 ], 200);
             }
 
         }catch (Exception $e){
