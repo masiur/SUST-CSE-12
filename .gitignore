@@ -24,4 +24,3 @@ composer.lock
 _ide_helper.php
 public/.htaccess
 *.htaccess
-.env

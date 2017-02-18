@@ -20,14 +20,16 @@ class ScoreController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request)
+    public function show(Request $request, $linkV)
     {
         try{
-            $score = Score::where('url', $request->link)->first();
+            $score = Score::where('url', $linkV)->first();
+            $finalScore = $score->score_one + $score->score_two + $score->score_three + $score->score_four + $score->score_five;
+            $finalScore = $finalScore/5;
             if($score != null){
-                return Response::json(['message' => 'Success','score' => $score ], 200);
+                return Response::json(['message' => 'Success','score' => 0], 200);
             }else{
-                return Response::json(['message' => 'No data Found','score' => $score ], 200);
+                return Response::json(['message' => 'No data Found','score' => $finalScore ], 200);
             }
 
         }catch (Exception $e){
@@ -53,19 +55,19 @@ class ScoreController extends Controller
 
         try{
             $score = Score::where('url','LIKE', $request->link)->first();
-            if($score == null){
+            if($score == null) {
                     $ss = new Score();
                     $ss->url = $request->link;
-                    if($request->score_one != null){
+                    if($request->rating != null  && $request->rating ==1){
                         $ss->score_one = 1;
-                    }elseif($request->score_two != null){
+                    }elseif($request->rating != null && $request->rating ==2){
 
                         $ss->score_two = 2;
-                    }elseif($request->score_three != null){
+                    }elseif($request->rating != null && $request->rating ==3){
                         $ss->score_three = 3;
-                    }elseif($request->score_four != null){
+                    }elseif($request->rating != null && $request->rating ==4){
                         $ss->score_four =4;
-                    }elseif($request->score_five != null){
+                    }elseif($request->rating != null && $request->rating ==5){
 
                         $ss->score_five =5;
                     }
@@ -77,17 +79,17 @@ class ScoreController extends Controller
             }else{
                 $ss =Score::where('url', 'LIKE', $request->link)->first();
                 $ss->url = $request->link;
-                if($request->score_one != null){
+                if($request->rating != null && $request->rating ==1){
                     $ss->score_one =$score->score_one+ 1;
-                }elseif($request->score_two != null){
+                }elseif($request->rating != null && $request->rating ==2){
                     $ss->score_two = $score->score_two+ 2;
-                }elseif($request->score_three != null){
+                }elseif($request->rating != null && $request->rating ==3){
 
                     $ss->score_three = $score->score_three+ 3;
-                }elseif($request->score_four != null){
+                }elseif($request->rating != null && $request->rating ==4){
 
                     $ss->score_four = $score->score_four+ 4;
-                }elseif($request->score_five != null){
+                }elseif($request->rating != null && $request->rating ==5){
 
                     $ss->score_five =$score->score_five+ 5;
                 }

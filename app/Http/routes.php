@@ -134,7 +134,7 @@ Route::delete('web/{id}',['as' => 'web.delete', 'uses' => 'WebengController@dest
 
 
 
-Route::get('api/trs/show',['as' => 'score.show', 'uses' => 'ScoreController@show']);
+Route::get('api/trs/show/{linkV}',['as' => 'score.show', 'uses' => 'ScoreController@show']);
 Route::post('api/trs',['as' => 'score.post', 'uses' => 'ScoreController@post']);
 
 
