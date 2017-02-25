@@ -21,7 +21,7 @@ class ScoreController extends Controller
     public function show(Request $request)
     {
         $data = $request->all();
-        return $receivedLink = $data['link'];
+        $receivedLink = $data['link'];
 
         try{
             $score = Score::where('url', $receivedLink)->first();
@@ -32,7 +32,9 @@ class ScoreController extends Controller
                     $finalScore = $finalScore/5;
                 return Response::json(['message' => 'Success','score' => $finalScore], 200);
             }else{
-                $ss = new Score();
+                $score = new Score();
+                $score->url = $receivedLink;
+                $score->save();
                 $finalScore = $score->score_one + $score->score_two + $score->score_three + $score->score_four + $score->score_five;
                 $finalScore = $finalScore/5;
                 return Response::json(['message' => 'Success','score' => $finalScore], 200);
@@ -56,52 +58,55 @@ class ScoreController extends Controller
     public function post(Request $request)
     {
 
-        return  $request->all();
-
-
+        $data = $request->all();
+        $receivedLink = $data['link'];
+        $rating = $data['rating'];
+        // $rating;
         try{
-            $score = Score::where('url','LIKE', $request->link)->first();
+            $score = Score::where('url', $request->link)->first();
             if($score == null) {
-                    $ss = new Score();
-                    $ss->url = $request->link;
-                    if($request->rating != null  && $request->rating ==1){
-                        $ss->score_one = 1;
-                    }elseif($request->rating != null && $request->rating ==2){
+                    // $ss = new Score();
+                    // $ss->url = $request->link;
+                    if( $request->rating ==1){
+                        $score->score_one = 1;
+                    }elseif($request->rating ==2){
 
-                        $ss->score_two = 2;
-                    }elseif($request->rating != null && $request->rating ==3){
-                        $ss->score_three = 3;
-                    }elseif($request->rating != null && $request->rating ==4){
-                        $ss->score_four =4;
-                    }elseif($request->rating != null && $request->rating ==5){
+                        $score->score_two = 2;
+                    }elseif($request->rating ==3){
 
-                        $ss->score_five =5;
+                        $score->score_three = 3;
+                    }elseif($request->rating ==4){
+
+                        $score->score_four =4;
+                    }elseif($request->rating ==5){
+                        $score->score_five =5;
                     }
 
-                    $ss->save();
+                    // $score
+                        $score->save();
 
                 return Response::json(['success' => 'Posted Successfully'], 200);
 
             }else{
-                $ss =Score::where('url', 'LIKE', $request->link)->first();
-                $ss->url = $request->link;
-                if($request->rating != null && $request->rating ==1){
-                    $ss->score_one =$score->score_one+ 1;
-                }elseif($request->rating != null && $request->rating ==2){
-                    $ss->score_two = $score->score_two+ 2;
-                }elseif($request->rating != null && $request->rating ==3){
+                $score =Score::where('url',  $request->link)->first();
+                // $score->url = $request->link;
+                if($request->rating ==1 ){
+                    $score->score_one = $score->score_one+ 1;
+                }elseif($request->rating ==2){
+                    $score->score_two = $score->score_two+ 1;
+                }elseif($request->rating ==3){
 
-                    $ss->score_three = $score->score_three+ 3;
-                }elseif($request->rating != null && $request->rating ==4){
+                    $score->score_three = $score->score_three +2;
+                }elseif($request->rating ==4){
 
-                    $ss->score_four = $score->score_four+ 4;
-                }elseif($request->rating != null && $request->rating ==5){
+                    $score->score_four = $score->score_four+ 4;
+                }elseif($request->rating ==5){
 
-                    $ss->score_five =$score->score_five+ 5;
+                    $score->score_five =$score->score_five+ 5;
                 }
 
-                $ss->save();
-                return Response::json(['success' => 'Posted Successfully'], 200);
+                $score->save();
+                return Response::json(['success' => 'Updated Successfully'], 200);
             }
 
         }catch (Exception $e){
