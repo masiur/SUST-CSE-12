@@ -88,8 +88,8 @@ class ScoreController extends Controller
                 return Response::json(['success' => 'Posted Successfully'], 200);
 
             }else{
-                $score =Score::where('url',  $request->link)->first();
-                // $score->url = $request->link;
+                $score =Score::where('url',  $receivedLink)->first();
+                $score->url = $receivedLink;
                 if($request->rating ==1 ){
                     $score->score_one = $score->score_one+ 1;
                 }elseif($request->rating ==2){
