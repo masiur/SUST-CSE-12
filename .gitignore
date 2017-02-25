@@ -4,7 +4,7 @@ vendor/
 .env.php
 public/.htaccess
 ### PhpStorm ###
-
+.env
 *.iml
 # Composer
 composer.phar
