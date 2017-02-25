@@ -12,8 +12,6 @@ use Mockery\CountValidator\Exception;
 class ScoreController extends Controller
 {
 
-
-
     /**
      * Display the specified resource.
      *
@@ -23,7 +21,7 @@ class ScoreController extends Controller
     public function show(Request $request)
     {
         $data = $request->all();
-        $receivedLink = $data['link'];
+        return $receivedLink = $data['link'];
 
         try{
             $score = Score::where('url', $receivedLink)->first();
