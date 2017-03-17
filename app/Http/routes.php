@@ -10,12 +10,14 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
 Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
 
-Route::get('/home', ['as' => 'home2', 'uses' => 'HomeController@index2']); // for post password reset redirection
+Route::get('/home', ['as' => 'home2', 'uses' => 'HomeController@index2']); // 
 
-
+Route::get('file/share', ['as' => 'file.share', 'uses' => 'ToolController@index']);
+Route::post('file/share/store', ['as' => 'file.share.store', 'uses' => 'ToolController@store']);
+Route::get('file/share/show', ['as' => 'file.share.show', 'uses' => 'ToolController@show']);
+Route::get('share/{id}', ['as' => 'file.share.download', 'uses' => 'ToolController@download']);
 
 Route::group(['middleware' => 'guest'], function(){
 	// Password reset link request routes...
