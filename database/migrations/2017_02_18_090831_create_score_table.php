@@ -20,6 +20,7 @@ class CreateScoreTable extends Migration
             $table->bigInteger('score_three')->default(0);
             $table->bigInteger('score_four')->default(0);
             $table->bigInteger('score_five')->default(0);
+            $table->float('rscore', 3, 2)->default(3.00);
             $table->timestamps();
         });
     }
