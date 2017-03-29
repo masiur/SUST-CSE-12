@@ -88,7 +88,7 @@ class ScoreController extends Controller
                     }
                     $totalNumberofRating = $score->score_one + $score->score_two + $score->score_three + $score->score_four + $score->score_five;
                     $totalSummation = (1* $score->score_one + 2 * $score->score_two + 3*$score->score_three + 4 * $score->score_four + 5 * $score->score_five);
-                    $finalScore = ( ($constantValue * $mean) + ($totalNumberofRating * $totalSummation) ) / ( $constantValue + $totalNumberofRating );
+                    $finalScore = ( ($constantValue * $mean) +  $totalSummation ) / ( $constantValue + $totalNumberofRating );
                     $score->rscore = $finalScore;
                     $score->save();
 
@@ -114,7 +114,7 @@ class ScoreController extends Controller
                 }
                 $totalNumberofRating = $score->score_one + $score->score_two + $score->score_three + $score->score_four + $score->score_five;
                 $totalSummation = (1* $score->score_one + 2 * $score->score_two + 3*$score->score_three + 4 * $score->score_four + 5 * $score->score_five);
-                $finalScore = ( ($constantValue * $mean) + ($totalNumberofRating * $totalSummation) ) / ( $constantValue + $totalNumberofRating );
+                $finalScore = ( ($constantValue * $mean) + ( $totalSummation) ) / ( $constantValue + $totalNumberofRating );
                 $score->rscore = $finalScore;
                 $score->save();
                 return Response::json(['success' => 'Updated Successfully'], 200);
