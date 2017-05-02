@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Model\Score;
+use App\Model\Review;
 use Illuminate\Http\Request;
 use Response;
 use App\Http\Requests;
@@ -133,6 +134,37 @@ class ScoreController extends Controller
     //     $score =
     //     return $score->score_one + $score->score_two + $score->score_three + $score->score_four + $score->score_five;
     // }
+
+    public function postReview(Request $request) {
+        $data = $request->all();
+        $receivedLink = $data['link'];
+        $content = $data['content'];
+
+        try{
+            $urlId = Score::where('url', $receivedLink)->pluck('id');       
+            $review = new Review();
+            $review->content = $data['content'];
+            $review->score_id = $urlId;
+            $review->save();
+            return Response::json(['message' => 'Success'], 200);
+        }catch (Exception $e){
+            return Response::json(['message' => 'Something went wrong', 'error_code' => 403], 403);
+        }
+
+    }
+
+    public function showReview(Request $request) {
+        $data = $request->all();
+        $receivedLink = $data['link'];
+        try{
+            $urlId = Score::where('url', $receivedLink)->pluck('id');
+            $review = Review::where('score_id', $urlId)->get();
+            return Response::json(['message' => 'Success', 'review' => $review], 200);
+        }catch (Exception $e){
+            return Response::json(['message' => 'Something went wrong', 'error_code' => 403], 403);
+        }
+
+    }
 
     
 
