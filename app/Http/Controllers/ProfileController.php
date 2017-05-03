@@ -51,7 +51,14 @@ class ProfileController extends Controller
                 'name'=>  $request->name,
                 'gender'=> $request->gender,
                 'dob'=> $request->dob,
-                'hometown'=> $request->hometown,
+                'address'=> $request->address,
+                'phone'=> $request->phone,
+                'github_link'=> $request->github_link,
+                'fb_link'=> $request->fb_link,
+                'linkedin_link'=> $request->linkedin_link,
+                'website'=> $request->website,
+                'workingPlatform'=> $request->workingPlatform,
+                
                 'interests'=> $request->interests,
                 'aboutme'=> $request->aboutme,
             ]);
@@ -112,6 +119,56 @@ class ProfileController extends Controller
         }else{
 
             return redirect()->back()->with(['error'=>'Image could not be uploaded']);
+        }
+    }
+
+    public function cvUpload(Request $request){
+
+
+        if ($request->hasFile('cvfile'))
+        {
+            $tmpfile = $request->file('cvfile');
+
+
+            //deleting previous file
+            $prev_cv_url = Auth::user()->profile->cv;
+            // if($prev_cv_url != 'upload/profile/default/avatar.jpg'){
+            //     if (\File::exists($prev_cv_url)) {
+            //         \File::delete($prev_cv_url);
+            //     }
+
+            // }
+            $destination = public_path().'/uploads/cvfiles';
+            $file_name = Auth::user()->username. '_cv';
+           
+            $filename = $file_name.'.'.$tmpfile->getClientOriginalExtension();
+            $tmpfile->move($destination, $filename);
+            $file_link = '/uploads/cvfiles/'.$filename;
+
+
+            $profile = Profile::where('user_id',Auth::user()->id)
+                ->update(array(
+                    'cv' => $file_link,
+                ));
+
+            if($profile){
+
+                $prev_cv_url = Auth::user()->profile->cv;
+                
+                    if (\File::exists($prev_cv_url)) {
+                        \File::delete($prev_cv_url);
+                    }
+                
+
+            
+                return redirect()->back()->with('success','CV updated successfully');
+            }else{
+                return redirect()->back()->with('error','Something went wrong');
+            }
+
+        }else{
+
+            return redirect()->back()->with(['error'=>'CV could not be uploaded']);
         }
     }
 
