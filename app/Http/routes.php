@@ -1,4 +1,4 @@
-<?php
+ <?php
  // use App\User;
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +18,12 @@ Route::get('file/share', ['as' => 'file.share', 'uses' => 'ToolController@index'
 Route::post('file/share/store', ['as' => 'file.share.store', 'uses' => 'ToolController@store']);
 Route::get('file/share/show', ['as' => 'file.share.show', 'uses' => 'ToolController@show']);
 Route::get('share/{id}', ['as' => 'file.share.download', 'uses' => 'ToolController@download']);
+
+// cv profile code 
+
+Route::get('/profile/{username}', ['as' => 'cvProfile', 'uses' => 'HomeController@cvProfile']);
+
+// cv profile code 
 
 Route::group(['middleware' => 'guest'], function(){
 	// Password reset link request routes...
@@ -116,6 +122,8 @@ Route::group(array('middleware' => 'auth'), function()
 	Route::get('profile', ['as' => 'profile', 'uses' => 'ProfileController@profile']);
 	Route::put('profile/update', array('as' => 'profile.update', 'uses' => 'ProfileController@update'));
 	Route::put('photo', array('as' => 'photo.store', 'uses' => 'ProfileController@photoUpload'));
+
+	Route::put('cvstore', array('as' => 'cv.store', 'uses' => 'ProfileController@cvUpload'));
 
 
 });
