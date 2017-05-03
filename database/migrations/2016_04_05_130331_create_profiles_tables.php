@@ -22,9 +22,16 @@ class CreateProfilesTables extends Migration
             $table->string('name')->nullable();
             $table->string('gender')->nullable();
             $table->string('dob')->nullable();
-            $table->string('hometown')->nullable();
+            $table->string('address')->nullable();
+            $table->string('phone')->nullable();
             $table->string('interests')->nullable();
+            $table->string('workingPlatform')->nullable();
+            $table->string('website')->nullable();
+            $table->string('fb_link')->nullable();
+            $table->string('github_link')->nullable();
+            $table->string('linkedin_link')->nullable();
             $table->string('img_url')->default('upload/profile/default/avatar.jpg');
+            $table->string('cv')->nullable();
             $table->text('aboutme')->nullable();
             $table->boolean('first_login')->default(false);
             $table->timestamps();
