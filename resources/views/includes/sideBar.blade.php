@@ -16,19 +16,19 @@
             <nav class="navigation">
                 <ul class="list-unstyled">
 
-                     <li class="{!! Menu::areActiveURLs(['dashboard', 'profile', 'change-password']) !!}"><a href="#"><i class="ion-flask"></i> <span class="nav-label">Home</span></a>
+                     <li class="{!! Menu::areActiveURLs(['dashboard', 'myprofile', 'account/edit']) !!}"><a href="#"><i class="ion-flask"></i> <span class="nav-label">Home</span></a>
                         <ul class="list-unstyled">
 
                             <li class="{!! Menu::isActiveURL('dashboard') !!}">
-                                <a href="{!!  URL::to( 'dashboard') !!}">Dashboard</a>
+                                <a href="{!!  route('dashboard') !!}">Dashboard</a>
                             </li>
 
-                            <li class="{!! Menu::isActiveURL('profile') !!}">
-                                <a href="{!!  URL::to( 'profile') !!}">Update Profile</a>
+                            <li class="{!! Menu::isActiveRoute('profile') !!}">
+                                <a href="{!!  route( 'profile') !!}">Update Profile</a>
                             </li>
 
-                            <li class="{!! Menu::isActiveURL('change-password') !!}">
-                                <a href="{!!  URL::to( 'change-password') !!}">Account</a>
+                            <li class="{!! Menu::isActiveRoute('edit.account') !!}">
+                                <a href="{!!  route( 'edit.account') !!}">Account</a>
                             </li>
                         </ul>
                     </li>
@@ -46,14 +46,14 @@
                             </li>
 
                             <li class="{!! Menu::isActiveRoute('skill.create') !!}">
-                                <a href="{!!  URL::route( 'skill.create') !!}">Add new skill</a>
+                                <a href="{!!  URL::route( 'skill.create') !!}">Add skill</a>
                             </li>
                         </ul>
                     </li>
 
 
 
-
+                    {{-- 
 
                     <li class="has-submenu"><a href="#"><i class="ion-grid"></i> <span class="nav-label">Routine</span></a>
                         <ul class="list-unstyled">
@@ -65,7 +65,7 @@
                         </ul>
                     </li>
 
-
+                    
                     <li class="has-submenu"><a href="#"><i class="ion-grid"></i> <span class="nav-label">Projects</span></a>
                         <ul class="list-unstyled">
                             <li class="{!! Menu::isActiveRoute('project.index') !!}">
@@ -101,6 +101,8 @@
 
                         </ul>
                     </li>
+
+                    --}}
 
                     <li class="has-submenu"><a href="#"><i class="ion-grid"></i> <span class="nav-label">Dialogue</span></a>
                         <ul class="list-unstyled">

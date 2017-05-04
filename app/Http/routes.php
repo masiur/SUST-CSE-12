@@ -10,6 +10,88 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+
+// Route::get('/',  function(){
+//  $students = [ 
+//                         '2012331002',
+//                         '2012331005',
+//                         '2012331007',
+//                         '2012331008',
+//                         '2012331009',
+//                         '2012331012',
+//                         '2012331013',
+//                         '2012331014',
+//                         '2012331015',
+//                         '2012331016',
+//                         '2012331017',
+//                         '2012331019',
+//                         '2012331020',
+//                         '2012331023',
+//                         '2012331024',
+//                         '2012331025',
+//                         '2012331027',
+//                         '2012331028',
+//                         '2012331029',
+//                         '2012331030',
+//                         '2012331031',
+//                         '2012331033',
+//                         '2012331034',
+//                         '2012331035',
+//                         '2012331039',
+//                         '2012331039',
+//                         '2012331041',
+//                         '2012331043',
+//                         '2012331045',
+//                         '2012331046',
+//                         '2012331047',
+//                         '2012331048',
+//                         '2012331049',
+//                         '2012331051',
+//                         '2012331052',
+//                         '2012331054',
+//                         '2012331055',
+//                         '2012331056',
+//                         '2012331057',
+//                         '2012331057',
+//                         '2012331059',
+//                         '2012331060',
+//                         '2012331062',
+//                         '2012331063',
+//                         '2012331064',
+//                         '2012331065',
+//                         '2012331066',
+//                         '2012331067',
+//                         '2012331068',
+//                         '2012331069',
+//                         '2012331070',
+//                         '2012331071',
+//                         '2012331072',
+//                         '2012331073',
+//                         '2012331074'
+//                     ];
+//         // foreach ($students as  $user) {
+//         //     echo "<br>".$user; 
+//         // }
+//                     // $file = pubic_path('upload/data.csv')
+//      $csv = array_map('str_getcsv', file(public_path('upload/data.csv')));
+//      foreach ($csv as $key => $value) {
+//      	if ($key != 0) {
+//      		echo $value[0]."<br>"; // reg
+//      		echo $value[1]."<br>"; // email
+//      		echo $value[2]."<br>"; // sustmail
+//      		echo $value[3]."<br>"; // firstname
+//      		echo $value[4]."<br>"; // lastname 
+//      		echo $value[5]."<br>"; // mobile
+//      		echo $value[6]."<br>"; // dept
+//      		echo $value[7]."<br>"; // sesion
+//      		// echo $value[8]."<br>";
+
+//      		echo "<br><br>";
+//      	}
+
+//      }
+// });
+
 Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
 
 Route::get('/home', ['as' => 'home2', 'uses' => 'HomeController@index2']); // 
@@ -53,7 +135,7 @@ Route::group(array('middleware' => 'auth'), function()
 {
 
 	Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@logout']);
-	Route::get('profile', ['as' => 'profile', 'uses' => 'ProfileController@profile']);
+	Route::get('myprofile', ['as' => 'profile', 'uses' => 'ProfileController@profile']);
 	Route::get('dashboard', array('as' => 'dashboard', 'uses' => 'HomeController@dashboard'));
 	Route::get('change-password', array('as' => 'password.change', 'uses' => 'Auth\AuthController@changePassword'));
 	Route::post('change-password', array('as' => 'password.doChange', 'uses' => 'Auth\AuthController@doChangePassword'));
@@ -119,7 +201,8 @@ Route::group(array('middleware' => 'auth'), function()
 	Route::delete('file/{id}',['as' => 'file.delete', 'uses' => 'FileController@destroy']);
 
 
-	Route::get('profile', ['as' => 'profile', 'uses' => 'ProfileController@profile']);
+	Route::get('account/edit', ['as' => 'edit.account', 'uses' => 'UsersController@editAccount']);
+	Route::post('account/edit', ['as' => 'post.edit.account', 'uses' => 'UsersController@updateAccount']);
 	Route::put('profile/update', array('as' => 'profile.update', 'uses' => 'ProfileController@update'));
 	Route::put('photo', array('as' => 'photo.store', 'uses' => 'ProfileController@photoUpload'));
 
