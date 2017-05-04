@@ -1,0 +1,55 @@
+/*This is the whole boby default style*/
+
+
+/*Testimonial style property*/
+
+.carousel-view{
+	color: black;
+	background-color: white;
+	padding: 2% 5%;
+	margin:1% 25%;
+	border-radius: 5px;
+}
+
+.owl-carousel .owl-item img{
+	width: 100%;
+	height: 100vh;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 0%;
+	margin-top: 0%;
+}
+.carousel-custom{
+	min-height: 100vh;
+	background-size: 100%;
+}
+
+.carousel-custom1{
+	background-image: url(../img/slider1.jpg);
+}
+.carousel-custom3{
+	background-image: url(../img/slide2.jpg);
+}
+.carousel-custom2{
+	background-image: url(../img/slide1.jpg);
+}
+.page-head{
+	z-index: 900;
+	width: 100%;
+	position: fixed;
+	top: 0px;
+	min-height: 8vh;
+	background-color: #fff;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+.page-head img{
+	padding-top: 2%;
+	padding-bottom: 2%;
+	padding-left: 10%;
+}
+.page-head a{
+	margin-right: 20px;
+	padding-left: 30px;
+	padding-right: 30px;
+}
