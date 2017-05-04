@@ -4,8 +4,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="author" content="Webians of CSE'12">
+    <meta name="keywords" content="Official Site of SUST CSE 21th Batch" />
+    <meta name ="description" content="2012 Batch,Department of Computer Science & Engineering, Shahjalal University of Science & Technology, Sylhet-3114, Bangladesh" />
+
     <link rel="stylesheet" type="text/css" href="up/assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="up/assets/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="up/assets/ionicon/css/ionicons.min.css">
@@ -30,12 +32,12 @@
         <div class="container-fulid">
             <div class="row">
                 <div class="col-md-6">
-                    <img class="img-responsive" src="up/assets/img/cse12.png">
+                    <img class="img-responsive" src="up/assets/img/cse12.PNG">
                 </div>
                 <div class="col-md-6 text-right" style="padding-top: 1%;padding-right: 7%;">
                         <a class="btn btn-success" href=""> Home</a>
                         <a class="btn btn-success" href=""> Profile</a>
-                        <a class="btn btn-success" href=""> Profile</a>
+                        <a class="btn btn-success" href=""> Contact</a>
                 </div>
             </div>
         </div>
@@ -61,9 +63,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                    <span class="copyright-text">2017 &copy CSE'12. All Rights Reserved.</span>
+                    <span class="copyright-text">2016-{{ Date('Y') }} &copy CSE'12. All Rights Reserved.</span>
                 </div>
-                <div class="col-md-6 col-sm-6 col-xs-12">
+                <!-- <div class="col-md-6 col-sm-6 col-xs-12">
                     <div class="social-icons">
                         <a href="#" class="social-link fb">
                             <i class="fa fa-facebook"></i>
@@ -75,7 +77,7 @@
                             <i class="fa fa-instagram"></i>
                         </a>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </footer>
