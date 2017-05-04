@@ -10,18 +10,21 @@
         <div class="panel-heading">
             <h3 class="text-center m-t-10"><strong>SUST CSE 2012</strong> </h3>
         </div>
+        {{-- 
         <center>
         
-
+        
         <div class="login-social-link">
         <br><p>It's highly recommended to sign in via Facebook</p>
             <a href="{{ route('login/fb') }}" class="btn btn-info"><i class="fa fa-facebook"></i> Facebook</a>
        <!-- <a href="#" class="btn btn-info"><i class="fa fa-twitter"></i>Twitter</a> -->
             <!-- <a href="{{ route('login/gp') }}" class="btn btn-danger"><i class="fa fa-google-plus"></i> Google</a> -->
         </div>
+
        </center>
 
         <br><p>or you can sign in via username & password</p>
+        --}}<br>
              @include('includes.alert')
 
             {!! Form::open(array('route' => 'login', 'method' => 'post', 'class' => 'form-horizontal m-t-40')) !!}

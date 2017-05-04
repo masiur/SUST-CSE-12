@@ -16,19 +16,26 @@
             <nav class="navigation">
                 <ul class="list-unstyled">
 
-                     <li class="{!! Menu::areActiveURLs(['dashboard', 'change-password']) !!}"><a href="#"><i class="ion-flask"></i> <span class="nav-label">Home</span></a>
+                     <li class="{!! Menu::areActiveURLs(['dashboard', 'profile', 'change-password']) !!}"><a href="#"><i class="ion-flask"></i> <span class="nav-label">Home</span></a>
                         <ul class="list-unstyled">
 
                             <li class="{!! Menu::isActiveURL('dashboard') !!}">
                                 <a href="{!!  URL::to( 'dashboard') !!}">Dashboard</a>
                             </li>
 
-                            <!-- <li class="{!! Menu::isActiveURL('change-password') !!}">
-                                <a href="{!!  URL::to( 'change-password') !!}">Password Change</a>
-                            </li> -->
+                            <li class="{!! Menu::isActiveURL('profile') !!}">
+                                <a href="{!!  URL::to( 'profile') !!}">Update Profile</a>
+                            </li>
+
+                            <li class="{!! Menu::isActiveURL('change-password') !!}">
+                                <a href="{!!  URL::to( 'change-password') !!}">Account</a>
+                            </li>
                         </ul>
                     </li>
 
+                    <li ><a href="{{ route('cvProfile', auth()->user()->username) }}"><i class="ion-grid"></i> <span class="nav-label">Public Profile</span></a>
+                        
+                    </li>
 
                     <!-- Skill -->
                     <li class="{!! Menu::areActiveRoutes(['skill.index', 'skill.create']) !!}"><a href="#"><i class="ion-compose"></i> <span class="nav-label">Skill</span></a>

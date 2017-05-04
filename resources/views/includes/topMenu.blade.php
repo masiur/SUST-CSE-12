@@ -22,6 +22,8 @@
 
                 <nav class=" navbar-default" role="navigation">
 
+
+
                     <!--
                     <ul class="nav navbar-nav hidden-xs">
                         <li class="dropdown">
@@ -40,8 +42,14 @@
 
                     <ul class="nav navbar-nav navbar-right top-menu top-right-menu">
 
-                        @include('includes.notificationMenu')
-                        @include('includes.inboxMenu')
+                    <li class="">
+                        <a data-toggle="" class="dropdown-toggle" href="{!!route('cvProfile', Auth::user()->username)!!}">
+                        <span class="btn btn-info bg-olive ">Go to Public Profile</span>
+                        </a>
+                    </li>
+
+                      {{--  @include('includes.notificationMenu')
+                        @include('includes.inboxMenu') --}} 
                         @include('includes.profileMenu')
 
                     </ul>
