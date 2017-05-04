@@ -19,11 +19,39 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function editAccount()
     {
-        //
+        $user = Auth::user();
+        return view('auth.account')
+                    ->with('title', 'Edit Account')
+                    ->with('user', $user);
     }
 
+    public function updateAccount(Request $request)
+    {
+        $rules =[
+            'email'                 => 'required|unique:users,email,'.Auth::id(),
+            'username'              => 'unique:users,username,'.Auth::id(),
+        ];
+        $data = $request->all();
+
+        $validation = Validator::make($data,$rules);
+
+        if($validation->fails()){
+            return redirect()->back()->withErrors($validation)->withInput();
+        }else{
+            $user = Auth::user();
+            $user->username = $data['username'];
+            $user->email = $data['email'];
+            if($user->save()) {
+                return redirect()->route('dashboard')
+                            ->with('success',"Account Succesfully Updated.");
+            } else {
+                return redirect()->route('dashboard')
+                        ->with('error','Something went wrong.Please Try again.');
+            }
+        }
+    }
 
     /**
      * Show the form for creating a new resource.

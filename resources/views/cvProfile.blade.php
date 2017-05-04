@@ -193,9 +193,6 @@
 
 	<!-- end:footer -->
 
-	<!-- start:javascript -->
-
-	<!-- end:javascript -->
 
 </body>
 
