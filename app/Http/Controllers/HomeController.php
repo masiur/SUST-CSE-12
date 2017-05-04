@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Model\Notice;
 use App\Http\Controllers\Controller;
 use App\Model\User;
+use App\Model\Skill;
 class HomeController extends Controller
 {
     /**
@@ -41,7 +42,8 @@ class HomeController extends Controller
     
     public function cvProfile($username)
     {
-        $user = User::where('username', $username)->with('profile')->first();
+        // return Skill::all();
+        $user = User::where('username', $username)->with('profile')->with('skills')->first();
         return view('cvProfile')
                     ->with('user', $user);
     }
