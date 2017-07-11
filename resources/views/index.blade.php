@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Webians of CSE'12">
-    <meta name="keywords" content="Official Site of SUST CSE 21th Batch" />
+    <meta name="keywords" content="Official Site of SUST CSE 21th Batch, CSE SUST, SUST CSE 2012, CSE'12 SUST , Shahjalal University of section & Technology" />
     <meta name ="description" content="2012 Batch,Department of Computer Science & Engineering, Shahjalal University of Science & Technology, Sylhet-3114, Bangladesh" />
 
     <link rel="stylesheet" type="text/css" href="up/assets/css/bootstrap.min.css">
@@ -24,7 +24,23 @@
     <!-- Custom  Design assets -->
     <link rel="stylesheet" type="text/css" href="up/assets/css/main.css">
     <!-- <link rel="stylesheet" type="text/css" href="up/assets/css/media.css"> -->
-    <title></title>
+    <title>SUST CSE 2012 Batch Official Site</title>
+    
+    <!-- Core Developer: Masiur Rahman Siddiki 
+    mrsiddiki AT gmail DOT com
+    CSE'12, SUST.
+
+    Developers: 
+
+    Abu Hanife Nayeem
+    simplenayem AT gmail DOT com
+    CSE'12, SUST.
+
+    && 
+
+    Md. Abu Talha
+    talhaqc AT gmail DOT com
+    CSE'12, SUST. -->
 </head>
 <body>
 
