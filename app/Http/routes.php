@@ -1,17 +1,5 @@
  <?php
  // use App\User;
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
-*/
-
-
 
 Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
 
@@ -169,3 +157,68 @@ Route::get('test',function(){
 });
 
 Route::get('file',['as' => 'file.index', 'uses' => 'FileController@index']);
+
+
+
+/*************************/
+/*
+@ Developer Area
+@ Development Phase Only
+*/
+
+
+/*
+@ Auto Code Update via Git
+*/
+
+/*
+@ git pull origin master
+*/
+Route::get('git/pull', function () {
+	
+	//You MUST need to specify the $path according to your project root path
+	$path = "cd /var/www/sustcse12.xyz/public_html/SUST-CSE-12/";
+
+	$commands = $path." && git pull origin master";
+
+	SSH::run($commands, function($line)
+	{
+	    echo "<p align=center>$line</p>";
+	});
+});
+
+/*
+@ php artisan migrate
+*/
+Route::get('artisan/m', function () {
+	
+	//You MUST need to specify the $path according to your project root path
+	$path = "cd /var/www/sustcse12.xyz/public_html/SUST-CSE-12/";
+
+	$commands = $path." && php artisan migrate";
+
+	SSH::run($commands, function($line)
+	{
+	    echo "<p align=center>$line</p>";
+	});
+});
+
+/*
+@ php artisan migrate refresh
+*/
+/* Feature Disabled Due to Sensative Data on the Server
+Route::get('artisan/mr', function () {
+	
+	//You MUST need to specify the $path according to your project root path
+	$path = "cd /var/www/sustcse12.xyz/public_html/SUST-CSE-12/";
+
+	$commands = $path." && php artisan migrate:refresh --seed";
+
+	SSH::run($commands, function($line)
+	{
+	    echo "<p align=center>$line</p>";
+	});
+});
+
+
+*/

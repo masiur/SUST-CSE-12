@@ -31,7 +31,8 @@
         "Zizaco\\Entrust\\EntrustServiceProvider",
         "Barryvdh\\LaravelIdeHelper\\IdeHelperServiceProvider",
         "Artdarek\\OAuth\\OAuthServiceProvider",
-        "Intervention\\Image\\ImageServiceProvider"
+        "Intervention\\Image\\ImageServiceProvider",
+        "Collective\\Remote\\RemoteServiceProvider"
     ],
     "eager": [
         "Illuminate\\Auth\\AuthServiceProvider",
@@ -143,7 +144,8 @@
         "Collective\\Html\\HtmlBuilder": "Collective\\Html\\HtmlServiceProvider",
         "Collective\\Html\\FormBuilder": "Collective\\Html\\HtmlServiceProvider",
         "command.ide-helper.generate": "Barryvdh\\LaravelIdeHelper\\IdeHelperServiceProvider",
-        "command.ide-helper.models": "Barryvdh\\LaravelIdeHelper\\IdeHelperServiceProvider"
+        "command.ide-helper.models": "Barryvdh\\LaravelIdeHelper\\IdeHelperServiceProvider",
+        "remote": "Collective\\Remote\\RemoteServiceProvider"
     },
     "when": {
         "Illuminate\\Foundation\\Providers\\ArtisanServiceProvider": [],
@@ -159,6 +161,7 @@
         "Illuminate\\Auth\\Passwords\\PasswordResetServiceProvider": [],
         "Illuminate\\Translation\\TranslationServiceProvider": [],
         "Collective\\Html\\HtmlServiceProvider": [],
-        "Barryvdh\\LaravelIdeHelper\\IdeHelperServiceProvider": []
+        "Barryvdh\\LaravelIdeHelper\\IdeHelperServiceProvider": [],
+        "Collective\\Remote\\RemoteServiceProvider": []
     }
 }

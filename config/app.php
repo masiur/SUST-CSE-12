@@ -148,7 +148,8 @@ return [
         Zizaco\Entrust\EntrustServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Artdarek\OAuth\OAuthServiceProvider::class,
-        Intervention\Image\ImageServiceProvider::class
+        Intervention\Image\ImageServiceProvider::class,
+        Collective\Remote\RemoteServiceProvider::class,
     ],
 
     /*
@@ -202,6 +203,7 @@ return [
         'Entrust'   =>Zizaco\Entrust\EntrustFacade::class,
         'OAuth'     => Artdarek\OAuth\Facade\OAuth::class,
         'Image' => Intervention\Image\Facades\Image::class,
+        'SSH' => Collective\Remote\RemoteFacade::class,
     ],
 
 ];

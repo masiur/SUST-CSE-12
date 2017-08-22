@@ -40,7 +40,7 @@ class ScoreController extends Controller
                 return Response::json(['message' => 'Success','score' => 3.00], 200);
             }
 
-        }catch (Exception $e){
+        }catch (\Exception $e){
             return Response::json(['message' => 'Something went wrong', 'error_code' => 403], 403);
         }
     }
