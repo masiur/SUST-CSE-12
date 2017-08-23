@@ -21,6 +21,7 @@ class ScoreController extends Controller
      */
     public function show(Request $request)
     {
+        
         $data = $request->all();
         $receivedLink = $data['link'];
 
@@ -69,8 +70,8 @@ class ScoreController extends Controller
         try{
             $score = Score::where('url', $receivedLink)->first();
             
-            $totalNumberofRating = $score->score_one + $score->score_two + $score->score_three + $score->score_four + $score->score_five;
-            if($totalNumberofRating < $constantValue) {
+            // $totalNumberofRating = $score->score_one + $score->score_two + $score->score_three + $score->score_four + $score->score_five;
+            // if($totalNumberofRating < $constantValue) {
                     // $ss = new Score();
                     // $ss->url = $request->link;
                     if( $rating ==1){
@@ -88,40 +89,76 @@ class ScoreController extends Controller
                         $score->score_five++;
                     }
                     $totalNumberofRating = $score->score_one + $score->score_two + $score->score_three + $score->score_four + $score->score_five;
-                    $totalSummation = (1* $score->score_one + 2 * $score->score_two + 3*$score->score_three + 4 * $score->score_four + 5 * $score->score_five);
-                    $finalScore = ( ($constantValue * $mean) +  $totalSummation ) / ( $constantValue + $totalNumberofRating );
-                    $score->rscore = $finalScore;
+
+                    // $totalSummation = (1* $score->score_one + 2 * $score->score_two + 3*$score->score_three + 4 * $score->score_four + 5 * $score->score_five);
+                    // $finalScore = ( ($constantValue * $mean) +  $totalSummation ) / ( $constantValue + $totalNumberofRating );
+
+                    // score of different rating levels
+
+                    // votes of diffrent rating level
+                    $votes = 
+                    [
+                        'L1' => $score->score_one,
+                        'L2' => $score->score_two,
+                        'L3' => $score->score_three,
+                        'L4' => $score->score_four,
+                        'L5' => $score->score_five
+                    ];
+
+                    $C = 2; // value of choice
+
+                    $levelBaseRate = // base rate of each level
+                        [ 
+                            'L1' => 0.2,
+                            'L2' => 0.2,
+                            'L3' => 0.2,
+                            'L4' => 0.2,
+                            'L5' => 0.2
+                        ];
+
+                    $S1 = ($votes['L1'] + ( $C * $levelBaseRate['L1']))/($C + $totalNumberofRating);
+                    $S2 = ($votes['L2'] + ( $C * $levelBaseRate['L2']))/($C + $totalNumberofRating);
+                    $S3 = ($votes['L3'] + ( $C * $levelBaseRate['L3']))/($C + $totalNumberofRating);
+                    $S4 = ($votes['L4'] + ( $C * $levelBaseRate['L4']))/($C + $totalNumberofRating);
+                    $S5 = ($votes['L5'] + ( $C * $levelBaseRate['L5']))/($C + $totalNumberofRating);
+
+                    $actualReputationScore = (0*$S1) + (0.25*$S2) + (0.50*$S3) + (0.75*$S4) + (1*$S5);
+
+                    $ratingInOneToFiveScale = ($actualReputationScore*4) + 1;
+
+
+                    $score->rscore = $ratingInOneToFiveScale;
                     $score->save();
 
                 return Response::json(['success' => 'Posted Successfully'], 200);
                 
 
-            }else{
-                // $score =Score::where('url',  $receivedLink)->first();
-                // $score->url = $receivedLink;
-                if($rating ==1 ){
-                    $score->score_one = $score->score_one+ 1;
-                }elseif($rating ==2){
-                    $score->score_two = $score->score_two+ 1;
-                }elseif($rating ==3){
+            // }else{
+            //     // $score =Score::where('url',  $receivedLink)->first();
+            //     // $score->url = $receivedLink;
+            //     if($rating ==1 ){
+            //         $score->score_one = $score->score_one+ 1;
+            //     }elseif($rating ==2){
+            //         $score->score_two = $score->score_two+ 1;
+            //     }elseif($rating ==3){
 
-                    $score->score_three = $score->score_three +1;
-                }elseif($rating ==4){
+            //         $score->score_three = $score->score_three +1;
+            //     }elseif($rating ==4){
 
-                    $score->score_four = $score->score_four+ 1;
-                }elseif($rating ==5){
+            //         $score->score_four = $score->score_four+ 1;
+            //     }elseif($rating ==5){
 
-                    $score->score_five =$score->score_five+ 1;
-                }
-                $totalNumberofRating = $score->score_one + $score->score_two + $score->score_three + $score->score_four + $score->score_five;
-                $totalSummation = (1* $score->score_one + 2 * $score->score_two + 3*$score->score_three + 4 * $score->score_four + 5 * $score->score_five);
-                $finalScore = ( ($constantValue * $mean) + ( $totalSummation) ) / ( $constantValue + $totalNumberofRating );
-                $score->rscore = $finalScore;
-                $score->save();
-                return Response::json(['success' => 'Updated Successfully'], 200);
-            }
+            //         $score->score_five =$score->score_five+ 1;
+            //     }
+            //     $totalNumberofRating = $score->score_one + $score->score_two + $score->score_three + $score->score_four + $score->score_five;
+            //     $totalSummation = (1* $score->score_one + 2 * $score->score_two + 3*$score->score_three + 4 * $score->score_four + 5 * $score->score_five);
+            //     $finalScore = ( ($constantValue * $mean) + ( $totalSummation) ) / ( $constantValue + $totalNumberofRating );
+            //     $score->rscore = $finalScore;
+            //     $score->save();
+            //     return Response::json(['success' => 'Updated Successfully'], 200);
+            // }
 
-        }catch (Exception $e){
+        }catch (\Exception $e){
             return Response::json(['message' => 'Something went wrong', 'error_code' => 403], 403);
         }
     }
@@ -138,16 +175,16 @@ class ScoreController extends Controller
     public function postReview(Request $request) {
         $data = $request->all();
         $receivedLink = $data['link'];
-        $content = $data['content'];
+        $content = $data['review'];
 
         try{
             $urlId = Score::where('url', $receivedLink)->pluck('id');       
             $review = new Review();
-            $review->content = $data['content'];
+            $review->content = $content;
             $review->score_id = $urlId;
             $review->save();
             return Response::json(['message' => 'Success'], 200);
-        }catch (Exception $e){
+        }catch (\Exception $e){
             return Response::json(['message' => 'Something went wrong', 'error_code' => 403], 403);
         }
 
