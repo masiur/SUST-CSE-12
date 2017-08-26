@@ -13,6 +13,16 @@ use Mockery\CountValidator\Exception;
 class ScoreController extends Controller
 {
 
+
+    public  static function parseUrl($str){
+        $str2 = urldecode($str);
+        $parse = preg_replace('#^https?://#', '', rtrim($str2,'/'));
+        return  preg_replace('/^www\./', '', $parse);
+    }
+
+
+
+
     /**
      * Display the specified resource.
      *
@@ -238,9 +248,7 @@ class ScoreController extends Controller
         try{
 
            return   $review  = Score::where('url', $receivedLink)->first();
-
-          // return  $sum = $review->score_one + $review->score_two + $review->score_three + $review->score_four +$review->score_five;
-            return Response::json(['message' => 'Success', 'data' => $review], 200);
+           return Response::json(['message' => 'Success', 'data' => $review], 200);
         }catch (Exception $e){
             return Response::json(['message' => 'Something went wrong', 'error_code' => 403], 403);
         }
@@ -249,11 +257,36 @@ class ScoreController extends Controller
 
 
 
-            public  static function parseUrl($str){
-                $str2 = urldecode($str);
-                $parse = preg_replace('#^https?://#', '', rtrim($str2,'/'));
-                return  preg_replace('/^www\./', '', $parse);
-            }
+
+    public function domainCheck(Request $request){
+        $data = $request->all();
+        $receivedLink = $this->parseUrl($data['link']);   //remove http(s) and  www
+        $url_info = parse_url(urldecode($data['link']));  // decode url
+        $domain = $url_info['host'];  //domain
+        $main_url = preg_replace('/^www\./', '', $domain); //domain without www
+
+
+        try{
+         $totalScore = Score::where('url', 'LIKE','%'.$main_url.'%')->sum('rscore');
+         $totalInput = Score::where('url', 'LIKE','%'.$main_url.'%')->count();
+
+         $domainReputation = $totalScore/$totalInput;
+
+         $array =[
+             'domain' => $domain,
+             'reputation' => $domainReputation,
+         ];
+
+            return $array;
+        }catch (Exception $e){
+            return Response::json(['message' => 'Something went wrong', 'error_code' => 403], 403);
+        }
+    }
+
+
+
+
+
 
 
 

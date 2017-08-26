@@ -135,12 +135,18 @@ Route::delete('web/{id}',['as' => 'web.delete', 'uses' => 'WebengController@dest
 
 
 
-Route::post('api/trs/show',['as' => 'score.show', 'uses' => 'ScoreController@show']);
-Route::post('api/trs/post',['as' => 'score.post', 'uses' => 'ScoreController@post']);
-Route::post('api/trs/postReview',['as' => 'review.show', 'uses' => 'ScoreController@postReview']);
-Route::post('api/trs/showReview',['as' => 'review.post', 'uses' => 'ScoreController@showReview']);
-Route::post('api/trs/chart',['as' => 'review.chart', 'uses' => 'ScoreController@chart']);
-Route::post('api/trs/back',['as' => 'review.back', 'uses' => 'ScoreController@backAlert']);
+ Route::post('api/trs/show',['as' => 'score.show', 'uses' => 'ScoreController@show']);
+ Route::post('api/trs/post',['as' => 'score.post', 'uses' => 'ScoreController@post']);
+ Route::post('api/trs/postReview',['as' => 'review.show', 'uses' => 'ScoreController@postReview']);
+ Route::post('api/trs/showReview',['as' => 'review.post', 'uses' => 'ScoreController@showReview']);
+ Route::post('api/trs/chart',['as' => 'review.chart', 'uses' => 'ScoreController@chart']);
+ Route::post('api/trs/back',['as' => 'review.back', 'uses' => 'ScoreController@backAlert']);
+ Route::post('api/trs/domainCheck',['as' => 'review.domainCheck', 'uses' => 'ScoreController@domainCheck']);
+
+
+
+
+
 
 
  Route::get ( '/csv', function () {
@@ -161,15 +167,11 @@ Route::post('api/trs/back',['as' => 'review.back', 'uses' => 'ScoreController@ba
                 $csv_data->rscore = mt_rand( 40, 50 ) / 10;
                 $csv_data->save ();
             }
-
-
          }
          fclose ( $handle );
      }
 
     return  "done";
-
-
  } );
 
 
@@ -184,10 +186,7 @@ Route::post('api/trs/back',['as' => 'review.back', 'uses' => 'ScoreController@ba
 
 
  Route::get ( '/dataUpdate', function () {
-
-
      $datas = \App\Model\Score::all();
-
       foreach ($datas as $data){
           $data = \App\Model\Score::where('id', $data->id)->first();
           $str2 = urldecode($data->url);
@@ -196,20 +195,17 @@ Route::post('api/trs/back',['as' => 'review.back', 'uses' => 'ScoreController@ba
           $data->url = $domain;
           $data->save();
       }
-
-
  } );
 
 
 
 
-// Route::get ( '/dat', function () {
-//          $url = 'http://google.com/dhasjkdas/sadsdds/sdda/sdads.html';
-//          $parse = preg_replace('#^https?://#', '', rtrim($url,'/'));
-//          $domain = preg_replace('/^www\./', '', $parse);
-//          echo $domain;
-//
-// } );
+ Route::get ( '/dat', function () {
+          $url = 'http://google.com/dhasjkdas/sadsdds/sdda/sdads.html';
+             $url_info = parse_url($url);
+             return   $domain = $url_info['host'];
+
+ } );
 
 
 
