@@ -176,10 +176,12 @@ class ScoreController extends Controller
         $data = $request->all();
         $receivedLink = $data['link'];
         $content = $data['review'];
+        $name = $data['name'];
 
         try{
             $urlId = Score::where('url', $receivedLink)->pluck('id');       
             $review = new Review();
+            $review->name = $name;
             $review->content = $content;
             $review->score_id = $urlId;
             $review->save();
@@ -196,6 +198,15 @@ class ScoreController extends Controller
         try{
             $urlId = Score::where('url', $receivedLink)->pluck('id');
             $review = Review::where('score_id', $urlId)->get();
+
+             foreach ($review as $rev){
+                 if(empty($rev->name)){
+                     $rev['name'] = 'Anonymous';
+                 }else{
+                     $rev['name'] = $rev->name;
+                 }
+             }
+
             return Response::json(['message' => 'Success', 'review' => $review], 200);
         }catch (Exception $e){
             return Response::json(['message' => 'Something went wrong', 'error_code' => 403], 403);
@@ -204,6 +215,40 @@ class ScoreController extends Controller
     }
 
     
+
+
+    public function chart(Request $request){
+        $data = $request->all();
+        $receivedLink = $data['link'];
+        try{
+         return   $urlId = Score::where('url', $receivedLink)->first();
+
+            return Response::json(['message' => 'Success', 'review' => $review], 200);
+        }catch (Exception $e){
+            return Response::json(['message' => 'Something went wrong', 'error_code' => 403], 403);
+        }
+    }
+
+
+
+
+    public function backAlert(Request $request){
+        $data = $request->all();
+        $receivedLink = $data['link'];
+        try{
+
+           return   $review  = Score::where('url', $receivedLink)->first();
+
+          // return  $sum = $review->score_one + $review->score_two + $review->score_three + $review->score_four +$review->score_five;
+            return Response::json(['message' => 'Success', 'data' => $review], 200);
+        }catch (Exception $e){
+            return Response::json(['message' => 'Something went wrong', 'error_code' => 403], 403);
+        }
+    }
+
+
+
+
 
 
 }

@@ -139,7 +139,8 @@ Route::post('api/trs/show',['as' => 'score.show', 'uses' => 'ScoreController@sho
 Route::post('api/trs/post',['as' => 'score.post', 'uses' => 'ScoreController@post']);
 Route::post('api/trs/postReview',['as' => 'review.show', 'uses' => 'ScoreController@postReview']);
 Route::post('api/trs/showReview',['as' => 'review.post', 'uses' => 'ScoreController@showReview']);
-
+Route::post('api/trs/chart',['as' => 'review.chart', 'uses' => 'ScoreController@chart']);
+Route::post('api/trs/back',['as' => 'review.back', 'uses' => 'ScoreController@backAlert']);
 
 
 
