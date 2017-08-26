@@ -23,7 +23,7 @@ class ScoreController extends Controller
     {
         
         $data = $request->all();
-        $receivedLink = $data['link'];
+        $receivedLink = $this->parseUrl($data['link']);
 
         try{
             $score = Score::where('url', $receivedLink)->first();
@@ -60,7 +60,7 @@ class ScoreController extends Controller
     {
 
         $data = $request->all();
-        $receivedLink = $data['link'];
+        $receivedLink = $this->parseUrl($data['link']);
         $rating = $data['rating'];
         // $rating;
         $mean = 3; // $mean represents a prior for the average of the stars. It's actually the mean of all ratings provided 
@@ -174,7 +174,7 @@ class ScoreController extends Controller
 
     public function postReview(Request $request) {
         $data = $request->all();
-        $receivedLink = $data['link'];
+        $receivedLink = $this->parseUrl($data['link']);
         $content = $data['review'];
         $name = $data['name'];
 
@@ -194,7 +194,7 @@ class ScoreController extends Controller
 
     public function showReview(Request $request) {
         $data = $request->all();
-        $receivedLink = $data['link'];
+        $receivedLink = $this->parseUrl($data['link']);
         try{
             $urlId = Score::where('url', $receivedLink)->pluck('id');
             $review = Review::where('score_id', $urlId)->get();
@@ -219,7 +219,7 @@ class ScoreController extends Controller
 
     public function chart(Request $request){
         $data = $request->all();
-        $receivedLink = $data['link'];
+        $receivedLink = $this->parseUrl($data['link']);
         try{
          return   $urlId = Score::where('url', $receivedLink)->first();
 
@@ -234,7 +234,7 @@ class ScoreController extends Controller
 
     public function backAlert(Request $request){
         $data = $request->all();
-        $receivedLink = $data['link'];
+        $receivedLink = $this->parseUrl($data['link']);
         try{
 
            return   $review  = Score::where('url', $receivedLink)->first();
@@ -247,6 +247,13 @@ class ScoreController extends Controller
     }
 
 
+
+
+            public  static function parseUrl($str){
+                $str2 = urldecode($str);
+                $parse = preg_replace('#^https?://#', '', rtrim($str2,'/'));
+                return  preg_replace('/^www\./', '', $parse);
+            }
 
 
 

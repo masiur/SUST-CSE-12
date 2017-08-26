@@ -143,6 +143,34 @@ Route::post('api/trs/chart',['as' => 'review.chart', 'uses' => 'ScoreController@
 Route::post('api/trs/back',['as' => 'review.back', 'uses' => 'ScoreController@backAlert']);
 
 
+ Route::get ( '/csv', function () {
+
+     if (($handle = fopen ( public_path () . '/top500.csv', 'r' )) !== FALSE) {
+         while ( ($data = fgetcsv ( $handle, 1000, ',' )) !== FALSE ) {
+
+             $score = \App\Model\Score::where('url',$data [1])->first();
+
+            if(empty($score)){
+                $csv_data = new  \App\Model\Score();
+                $csv_data->url = $data [1];
+                $csv_data->score_four = rand(30,50);
+                $csv_data->score_five =  rand(1,4);
+                $csv_data->score_three = rand(1,5);
+                $csv_data->score_two = rand(1,3);
+                $csv_data->score_one = 0;
+                $csv_data->rscore = mt_rand( 40, 50 ) / 10;
+                $csv_data->save ();
+            }
+
+
+         }
+         fclose ( $handle );
+     }
+
+    return  "done";
+
+
+ } );
 
 
 
@@ -151,7 +179,57 @@ Route::post('api/trs/back',['as' => 'review.back', 'uses' => 'ScoreController@ba
 
 
 
-Route::get('test',function(){
+
+
+
+
+ Route::get ( '/dataUpdate', function () {
+
+
+     $datas = \App\Model\Score::all();
+
+      foreach ($datas as $data){
+          $data = \App\Model\Score::where('id', $data->id)->first();
+          $str2 = urldecode($data->url);
+          $u = preg_replace('#^https?://#', '', rtrim($str2,'/'));
+          $domain = preg_replace('/^www\./', '', $u);
+          $data->url = $domain;
+          $data->save();
+      }
+
+
+ } );
+
+
+
+
+// Route::get ( '/dat', function () {
+//          $url = 'http://google.com/dhasjkdas/sadsdds/sdda/sdads.html';
+//          $parse = preg_replace('#^https?://#', '', rtrim($url,'/'));
+//          $domain = preg_replace('/^www\./', '', $parse);
+//          echo $domain;
+//
+// } );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     Route::get('test',function(){
 	 $count = App\Model\WebEng::count();
 	for($i =1; $i<$count ; $i++)
 		echo $i;
