@@ -12,7 +12,7 @@ class AddNameToReviews extends Migration
      */
     public function up()
     {
-        Schema::create('reviews', function (Blueprint $table) {
+        Schema::table('reviews', function (Blueprint $table) {
             $table->string('name')->nullable();
         });
     }
