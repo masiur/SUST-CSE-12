@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateReviewsTable extends Migration
+class AddNameToReviews extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,7 @@ class CreateReviewsTable extends Migration
     public function up()
     {
         Schema::create('reviews', function (Blueprint $table) {
-            $table->increments('id');
-           // $table->string('name')->nullable();
-            $table->text('content')->nullable();
-            $table->integer('score_id')->unsigned();
-            $table->foreign('score_id')->references('id')->on('score')
-                ->onUpdate('cascade'); // we are never going to use ondelete here
-            $table->timestamps();
+            $table->string('name')->nullable();
         });
     }
 
