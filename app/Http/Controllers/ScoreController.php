@@ -251,7 +251,7 @@ class ScoreController extends Controller
          $totalScore = Score::where('url', 'LIKE','%'.$main_url.'%')->sum('rscore');
          $totalInput = Score::where('url', 'LIKE','%'.$main_url.'%')->count();
 
-         $domainReputation = round($totalScore/$totalInput, 2);
+         $domainReputation = $totalScore/$totalInput;
 
          $array =[
              'domain' => $domain,
