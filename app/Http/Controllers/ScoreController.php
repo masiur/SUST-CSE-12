@@ -255,7 +255,7 @@ class ScoreController extends Controller
 
          $array =[
              'domain' => $domain,
-             'reputation' => $domainReputation,
+             'reputation' => $totalInput,
          ];
 
             return $array;
