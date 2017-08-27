@@ -14,12 +14,6 @@ class ScoreController extends Controller
 {
 
 
-    public  static function parseUrl($str){
-        $str2 = urldecode($str);
-        $parse = preg_replace('#^https?://#', '', rtrim($str2,'/'));
-        return  preg_replace('/^www\./', '', $parse);
-    }
-
 
 
 
@@ -242,19 +236,6 @@ class ScoreController extends Controller
 
 
 
-    public function backAlert(Request $request){
-        $data = $request->all();
-        $receivedLink = $this->parseUrl($data['link']);
-        try{
-
-           return   $review  = Score::where('url', $receivedLink)->first();
-           return Response::json(['message' => 'Success', 'data' => $review], 200);
-        }catch (Exception $e){
-            return Response::json(['message' => 'Something went wrong', 'error_code' => 403], 403);
-        }
-    }
-
-
 
 
 
@@ -286,6 +267,12 @@ class ScoreController extends Controller
 
 
 
+
+    public  static function parseUrl($str){
+        $str2 = urldecode($str);
+        $parse = preg_replace('#^https?://#', '', rtrim($str2,'/'));
+        return  preg_replace('/^www\./', '', $parse);
+    }
 
 
 

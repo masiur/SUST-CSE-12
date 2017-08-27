@@ -140,7 +140,6 @@ Route::delete('web/{id}',['as' => 'web.delete', 'uses' => 'WebengController@dest
  Route::post('api/trs/postReview',['as' => 'review.show', 'uses' => 'ScoreController@postReview']);
  Route::post('api/trs/showReview',['as' => 'review.post', 'uses' => 'ScoreController@showReview']);
  Route::post('api/trs/chart',['as' => 'review.chart', 'uses' => 'ScoreController@chart']);
- Route::post('api/trs/back',['as' => 'review.back', 'uses' => 'ScoreController@backAlert']);
  Route::post('api/trs/domainCheck',['as' => 'review.domainCheck', 'uses' => 'ScoreController@domainCheck']);
 
 
