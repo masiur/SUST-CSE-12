@@ -19,17 +19,26 @@ class HomeController extends Controller
     public function index()
     {
         return view('index')
-                    ->with('title','Home')
-                    ->with('user', Auth::user());
+                    ->with('title','Home');
     }
     public function index2()
     {
         // return $notices = Notice::all();
         // return redirect()->route('login');
         return view('index')
-                    ->with('title','Home')
-                    ->with('user', Auth::user());
+                    ->with('title','Home');
     }
+    
+
+    public function profile()
+    {
+        $users = User::take(53)->skip(1)->get();
+
+        return view('profile')
+                    ->with('title','Profile')
+                    ->with('users', $users);
+    }
+
 
     public function dashboard(){
         $notices = Notice::take(5)->get();

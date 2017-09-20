@@ -3,7 +3,8 @@
 
 Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
 
-Route::get('/home', ['as' => 'home2', 'uses' => 'HomeController@index2']); // 
+Route::get('/home', ['as' => 'home2', 'uses' => 'HomeController@index2']); 
+Route::get('/we', ['as' => 'we', 'uses' => 'HomeController@profile']);  
 
 Route::get('file/share', ['as' => 'file.share', 'uses' => 'ToolController@index']);
 Route::post('file/share/store', ['as' => 'file.share.store', 'uses' => 'ToolController@store']);
