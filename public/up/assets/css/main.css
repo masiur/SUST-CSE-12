@@ -25,13 +25,19 @@
 }
 
 .carousel-custom1{
-	background-image: url(../img/slider1.jpg);
+	background-image: url(/../img/slider4.jpg);
 }
 .carousel-custom3{
 	background-image: url(../img/slide2.jpg);
 }
 .carousel-custom2{
 	background-image: url(../img/slide1.jpg);
+}
+.carousel-custom4{
+	background-image: url(../img/slider1.jpg);
+}
+.carousel-custom5{
+	background-image: url(/../img/slider5.jpg);
 }
 .page-head{
 	z-index: 900;
