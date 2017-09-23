@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="Webians of CSE'12">
+    <meta name="author" content="CSE 2012">
     <meta name="keywords" content="Official Site of SUST CSE 21th Batch, CSE SUST, SUST CSE 2012, CSE'12 SUST , Shahjalal University of section & Technology" />
     <meta name ="description" content="2012 Batch,Department of Computer Science & Engineering, Shahjalal University of Science & Technology, Sylhet-3114, Bangladesh" />
 
@@ -60,7 +60,7 @@
                 <div class="col-md-6 text-right" style="padding-top: 1%;padding-right: 7%;">
                         <a class="btn btn-success" href="{{ route('home') }}"> Home</a>
                         <a class="btn btn-success active" href="{{ route('we') }}"> Profile</a>
-                        <a class="btn btn-success" href=""> Contact</a>
+                        <a class="btn btn-success" href="http://souvenir.sustcse12.xyz/"> Souvenir</a>
                 </div>
             </div>
         </div>

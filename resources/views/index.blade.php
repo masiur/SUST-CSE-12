@@ -53,7 +53,7 @@
                 <div class="col-md-6 text-right" style="padding-top: 1%;padding-right: 7%;">
                         <a class="btn btn-success" href="{{ route('home') }}"> Home</a>
                         <a class="btn btn-success" href="{{ route('we') }}"> Profile</a>
-                        <a class="btn btn-success" href=""> Contact</a>
+                        <a class="btn btn-success" href="http://souvenir.sustcse12.xyz/"> Souvenir</a>
                 </div>
             </div>
         </div>

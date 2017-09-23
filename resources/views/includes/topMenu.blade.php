@@ -42,6 +42,9 @@
 
                     <ul class="nav navbar-nav navbar-right top-menu top-right-menu">
 
+                    <li ><a href="{{ route('home') }}" class="dropdown-toggle" target="_blank"> <span class="btn btn-primary ">HomePage</span></a>
+                    </li>
+
                     <li class="">
                         <a data-toggle="" class="dropdown-toggle" href="{!!route('cvProfile', Auth::user()->username)!!}">
                         <span class="btn btn-info bg-olive ">Go to Public Profile</span>
