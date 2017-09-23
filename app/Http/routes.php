@@ -13,7 +13,8 @@ Route::get('share/{id}', ['as' => 'file.share.download', 'uses' => 'ToolControll
 
 // cv profile code 
 
-Route::get('/profile/{username}', ['as' => 'cvProfile', 'uses' => 'HomeController@cvProfile']);
+Route::get('/profile/{username}', ['as' => 'cvProfile1', 'uses' => 'HomeController@cvProfile']);
+Route::get('/me/{username}', ['as' => 'cvProfile', 'uses' => 'HomeController@cvProfile']);
 
 // cv profile code 
 
@@ -115,7 +116,12 @@ Route::group(array('middleware' => 'auth'), function()
 	Route::put('profile/update', array('as' => 'profile.update', 'uses' => 'ProfileController@update'));
 	Route::put('photo', array('as' => 'photo.store', 'uses' => 'ProfileController@photoUpload'));
 
+	Route::get('account/edit', ['as' => 'edit.account', 'uses' => 'UsersController@editAccount']);
+	Route::post('account/edit', ['as' => 'post.edit.account', 'uses' => 'UsersController@updateAccount']);
+
 	Route::put('cvstore', array('as' => 'cv.store', 'uses' => 'ProfileController@cvUpload'));
+
+	Route::get('data', array('as' => 'rawdata', 'uses' => 'ProfileController@rawdata'));
 
 
 });

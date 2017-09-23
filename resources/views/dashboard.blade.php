@@ -2,8 +2,29 @@
   @section('content')  
     @include('includes.alert')
         <div class="page-title"> 
-        	<h3 class="title">Widgets</h3> 
+        	<h3 class="title">Welcome</h3> 
         </div>
+        Useful Links<br>
+        <a href="{{ route('cvProfile', auth()->user()->username) }}" target="_blank" class="btn btn-info">Your Public Profile</a>
+        <a href="http://souvenir.sustcse12.xyz/" target="_blank" class="btn btn-primary">Souvenir</a>
+        <a href="http://sust.rps.com.bd/home" target="_blank" class="btn btn-success">SUST RPS</a>
+        <a href="http://www.sust.edu/d/cse" target="_blank" class="btn btn-info">SUST CSE Website</a>
+
+        <a href="https://www.facebook.com/groups/SUSTCSE12/" target="_blank" class="btn btn-success">Our Facebook Group</a>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        {{-- 
         <!-- Slider/ Carousel -->
                 <div class="row">
                     <div class="col-md-6">
@@ -57,10 +78,15 @@
 
                 </div>  <!-- End row -->
             <div id="calendar"></div>
+
+        --}}
       
     
 @stop
+
+{{--
 @section('style')
+
         <!-- Plugins css -->		
 		{!! Html::style('assets/owl-carousel/owl.carousel.css') !!}
         {!! Html::style('calendar/css/calendar.css') !!}
@@ -91,3 +117,5 @@
             });
         </script>   
 @endsection
+
+ --}}

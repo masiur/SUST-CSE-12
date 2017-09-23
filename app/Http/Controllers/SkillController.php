@@ -9,6 +9,7 @@ use App\Http\Requests;
 use View;
 use App\Http\Controllers\Controller;
 use Redirect;
+use Auth;
 
 class SkillController extends Controller
 {
@@ -19,9 +20,9 @@ class SkillController extends Controller
      */
     public function index()
     {
-        $skill = Skill::all();
+        $skill = Skill::where('user_id', Auth::id())->get();
 
-        return View::make('skill.index', compact('skill'))->with('title',"Skill");
+        return View::make('skill.index', compact('skill'))->with('title',"My Skill Table");
     }
 
     /**
@@ -96,7 +97,7 @@ class SkillController extends Controller
         $skill->skills = $request->skills;
         $skill->experience = $request->experience;
         $skill->save();
-        return Redirect::route('skill.index')->with('success','Skill Successfully Added to Your Profile');
+        return Redirect::route('skill.index')->with('success','Skill Successfully Updated');
     }
 
     /**

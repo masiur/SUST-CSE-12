@@ -16,7 +16,7 @@
             <nav class="navigation">
                 <ul class="list-unstyled">
 
-                     <li class="{!! Menu::areActiveURLs(['dashboard', 'myprofile', 'account/edit']) !!}"><a href="#"><i class="ion-flask"></i> <span class="nav-label">Home</span></a>
+                     <li class="{!! Menu::areActiveRoutes(['dashboard', 'profile', 'edit.account']) !!}"><a href="#"><i class="ion-flask"></i> <span class="nav-label">Menus</span></a>
                         <ul class="list-unstyled">
 
                             <li class="{!! Menu::isActiveURL('dashboard') !!}">
@@ -33,7 +33,11 @@
                         </ul>
                     </li>
 
-                    <li ><a href="{{ route('cvProfile', auth()->user()->username) }}"><i class="ion-grid"></i> <span class="nav-label">Public Profile</span></a>
+                    <li ><a href="{{ route('cvProfile', auth()->user()->username) }}" target="_blank"><i class="ion-grid"></i> <span class="nav-label">Public Profile</span></a>
+                        
+                    </li>
+
+                    <li ><a href="{{ route('rawdata') }}" target="_blank"><i class="ion-grid"></i> <span class="nav-label">Raw Data</span></a>
                         
                     </li>
 
