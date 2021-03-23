@@ -268,6 +268,14 @@ Route::get('git/pull', function () {
 	});
 });
 
+
+
+Route::get('pp', function(){
+
+});
+
+
+
 /*
 @ php artisan migrate
 */

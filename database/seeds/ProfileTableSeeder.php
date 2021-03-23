@@ -16,7 +16,7 @@ class ProfileTableSeeder extends Seeder
         // Profile::create(['user_id'=> 2]);
         // Profile::create(['user_id'=> 3]);
 
-        $csv = array_map('str_getcsv', file(public_path('upload/data.csv')));
+        $csv = array_map('str_getcsv', file(public_path('upload/data2.csv')));
         foreach ($csv as $key => $value) {
             if ($key != 0) {
 
@@ -37,13 +37,17 @@ class ProfileTableSeeder extends Seeder
                 $user->username = $value[0];
                 $user->email = $value[1];
                 $user->password = bcrypt('ab');
+                $user->sust_mail = $value[2];
+                $user->email2 = null;
+                $user->registration_no = $value[0];
                 $user->created_at = date('Y-m-d H:i:s');
                 $user->updated_at = date('Y-m-d H:i:s');
                 $user->save();
                 //creating corresponding profile
                 $profile = new Profile();
                 $profile->user_id = $user->id;
-                $profile->name = $value[3].' '.$value[4]; // full name 
+                $profile->phone = $value[5];
+                $profile->name = $value[3].' '.$value[4]; // full name
                 $profile->save();
 
             }

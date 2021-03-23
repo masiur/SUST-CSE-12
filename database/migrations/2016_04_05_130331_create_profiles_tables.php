@@ -20,7 +20,7 @@ class CreateProfilesTables extends Migration
                 ->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('name')->nullable();
-            $table->string('gender')->nullable();
+            $table->enum('gender', ['Male', 'Female'])->default('Male');
             $table->string('dob')->nullable();
             $table->string('address')->nullable();
             $table->string('phone')->nullable();

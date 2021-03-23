@@ -24,6 +24,6 @@ class AddNameToReviews extends Migration
      */
     public function down()
     {
-        Schema::drop('reviews');
+//        Schema::drop('reviews');
     }
 }

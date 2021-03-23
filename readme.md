@@ -3,7 +3,7 @@
 ### Features
  
  * Slides with Beautiful Group Photos representing the Batch
- * Profile Page
+ * Statistics Page
  * Personal Profile Page for each one of the Batch.
  
  #### Tags
