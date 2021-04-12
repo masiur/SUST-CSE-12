@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Model\CountryLiving;
 use Auth;
 use Illuminate\Http\Request;
 
@@ -9,6 +10,8 @@ use App\Model\Notice;
 use App\Http\Controllers\Controller;
 use App\Model\User;
 use App\Model\Skill;
+use Illuminate\Support\Facades\Cache;
+
 class HomeController extends Controller
 {
     /**
@@ -21,6 +24,26 @@ class HomeController extends Controller
         return view('index')
                     ->with('title','Home');
     }
+
+    public function about()
+    {
+        $countrylivings = Cache::get('country_livings');
+        if(!$countrylivings) {
+            $countrylivingsFromDb = CountryLiving::where('status', true)->get();
+            Cache::put('country_livings', $countrylivingsFromDb,  3*24*60); // 3 days
+            $countrylivings = $countrylivingsFromDb;
+        }
+        return view('about')
+            ->with('title','About')
+            ->with('countrylivings',$countrylivings);
+    }
+
+    public function credit()
+    {
+        return view('credit')
+            ->with('title','Credit');
+    }
+
     public function index2()
     {
         // return $notices = Notice::all();

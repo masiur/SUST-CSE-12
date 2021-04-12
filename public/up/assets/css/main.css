@@ -26,21 +26,27 @@
 
 .carousel-custom1{
 	background-image: url(/../img/slider1.jpg);
+	background-repeat: no-repeat;
 }
 .carousel-custom2{
 	background-image: url(/../img/slider2.jpg);
+	background-repeat: no-repeat;
 }
 .carousel-custom3{
 	background-image: url(/../img/slider3.jpg);
+	background-repeat: no-repeat;
 }
 .carousel-custom4{
 	background-image: url(/../img/slider4.jpg);
+	background-repeat: no-repeat;
 }
 .carousel-custom5{
 	background-image: url(/../img/slider5.jpg);
+	background-repeat: no-repeat;
 }
 .carousel-custom6{
 	background-image: url(/../img/slider6.jpg);
+	background-repeat: no-repeat;
 }
 
 .page-head{
