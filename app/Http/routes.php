@@ -2,6 +2,9 @@
  // use App\User;
 
 Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
+Route::get('/ff', function () {
+    return view('emails.birthday_wish');
+});
 
 Route::get('/home', ['as' => 'home2', 'uses' => 'HomeController@index2']); 
 Route::get('/we', ['as' => 'we', 'uses' => 'HomeController@profile']);  

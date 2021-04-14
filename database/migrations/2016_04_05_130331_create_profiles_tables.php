@@ -21,7 +21,7 @@ class CreateProfilesTables extends Migration
 
             $table->string('name')->nullable();
             $table->enum('gender', ['Male', 'Female'])->default('Male');
-            $table->string('dob')->nullable();
+            $table->date('dob')->nullable();
             $table->string('address')->nullable();
             $table->string('phone')->nullable();
             $table->string('interests')->nullable();

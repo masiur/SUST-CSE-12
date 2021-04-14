@@ -12,9 +12,6 @@ class ProfileTableSeeder extends Seeder
      */
     public function run()
     {
-        // Profile::create(['user_id'=> 1]);
-        // Profile::create(['user_id'=> 2]);
-        // Profile::create(['user_id'=> 3]);
 
         $csv = array_map('str_getcsv', file(public_path('upload/data2.csv')));
         foreach ($csv as $key => $value) {
@@ -29,16 +26,20 @@ class ProfileTableSeeder extends Seeder
                 // $value[5]."<br>"; // mobile
                 // $value[6]."<br>"; // dept
                 // $value[7]."<br>"; // sesion
+                // $value[8]."<br>"; // date_of_birth
                 // // echo $value[8]."<br>";
                 */
 
                 //useful Code Segment 
                 $user = new User();
-                $user->username = $value[0];
-                $user->email = $value[1];
-                $user->password = bcrypt('ab');
+                $user->username = $value[0] == '2012331028' ? 'masiur' : $value[0]; // this is registration \\ if id is of masiur then put masiur
+                $user->email = $value[1]; //
+                $user->name = $value[3].' '.$value[4]; // full name
+                $user->password = bcrypt($value[0]);
                 $user->sust_mail = $value[2];
                 $user->email2 = null;
+                $user->dob = $value[8];
+                $user->phone = $value[5];
                 $user->registration_no = $value[0];
                 $user->created_at = date('Y-m-d H:i:s');
                 $user->updated_at = date('Y-m-d H:i:s');
@@ -46,6 +47,7 @@ class ProfileTableSeeder extends Seeder
                 //creating corresponding profile
                 $profile = new Profile();
                 $profile->user_id = $user->id;
+                $profile->dob = $value[8];
                 $profile->phone = $value[5];
                 $profile->name = $value[3].' '.$value[4]; // full name
                 $profile->save();

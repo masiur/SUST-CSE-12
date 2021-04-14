@@ -26,8 +26,8 @@ class UsersTableSeeder extends Seeder
         //     $profile->name = 'Masiur Rahman Siddiki';
         //     $profile->save();
 
-        User::create(['username' => 'masiur','email' => 'mrsiddiki@outlook.com','password' => bcrypt('a')]);
-        Profile::create(['user_id' => 1, 'name' => 'Masiur Rahman Siddiki']);
+//        User::create(['username' => 'masiur','email' => 'mrsiddiki@outlook.com','password' => bcrypt('a')]);
+//        Profile::create(['user_id' => 1, 'name' => 'Masiur Rahman Siddiki']);
         // User::create(['username' => 'tal','email' => 'talhaqc@gmail.com','password' => bcrypt('a')]);
         //Use this user for login as user
        
