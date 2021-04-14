@@ -28,7 +28,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('inspire')
                  ->hourly();
         $schedule->command('wish:birthday')
-            ->dailyAt('15:00');
+            ->dailyAt('13:00');
 //            ->emailOutputTo('write2moshi@gmail.com');
     }
 }

@@ -109,6 +109,9 @@ Time in Khulia Para, Sylhet
         .navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
             color: #051cb7;
         }
+        /*.mt-auto, .my-auto {*/
+        /*    margin-top: inherit!important;*/
+        /*}*/
 
 
 
@@ -202,13 +205,12 @@ Time in Khulia Para, Sylhet
 </div>
 
 
-<footer class="footer mt-auto py-3">
+<footer class="footer ">
     <div class="container">
         <div class="row">
             <div class="float-left col col-sm-4 px-4">
                 <span class="text-muted"> &copy;2013-{{ Date('Y') }} Twelve Batch.</span>
             </div>
-            <div class="col"></div>
             <div class="col"></div>
             <div class="float-right col col-sm-4">
                 <span class="float-right text-muted ">Made With <i class="fa fa-heart" style="color: #d9462e"></i> By <a href="{{ route('credit') }}">Us</a></span>

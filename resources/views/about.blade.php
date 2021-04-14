@@ -279,7 +279,6 @@ Time in Khulia Para, Sylhet
                 <span class="text-muted"> &copy;2013-{{ Date('Y') }} Twelve Batch.</span>
             </div>
             <div class="col"></div>
-            <div class="col"></div>
             <div class="float-right col col-sm-4">
                 <span class="float-right text-muted ">Made With <i class="fa fa-heart" style="color: #d9462e"></i> By <a href="{{ route('credit') }}">Us</a></span>
             </div>
