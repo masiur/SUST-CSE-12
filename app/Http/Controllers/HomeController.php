@@ -27,8 +27,8 @@ class HomeController extends Controller
 
     public function about()
     {
-        $countrylivings = Cache::get('country_livings');
-        if(!$countrylivings) {
+        $countrylivings = Cache::has('country_livings') ? Cache::get('country_livings') : null;
+        if(is_null($countrylivings)) {
             $countrylivingsFromDb = CountryLiving::where('status', true)->get();
             Cache::put('country_livings', $countrylivingsFromDb,  3*24*60); // 3 days
             $countrylivings = $countrylivingsFromDb;
