@@ -10,7 +10,7 @@
     <meta name ="description" content="This is the official site of 2012 (21st) Batch,Department of Computer Science & Engineering, Shahjalal University of Science & Technology, Sylhet-3114, Bangladesh" />
 
 
-    <title>About | CSE 2012 | Shahjalal University of section & Technology</title>
+    <title>About | CSE 2012 | Shahjalal University of Science & Technology</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -194,8 +194,8 @@ Time in Khulia Para, Sylhet
 
     <div class="row featurette">
         <div class="col-md-9 order-md-2">
-            <h3 class="featurette-heading">চিরসবুজ শুভকামনা ~ <span class="text-muted"> ড. মুহম্মদ জাফর ইকবাল</span></h3>
-            <p class="lead">সি.এস.ই ২০১২ সালের ছেলেমেয়েরা পাশ করে চলে যাচ্ছে - বিষয়টি একদিন থেকে আনন্দের - তারা ছাত্রজীবন শেষ করে আনন্দময় কর্ম জীবনে প্রবেশ করতে যাচ্ছে।
+            <h3 class="featurette-heading">চিরসবুজ শুভকামনা ~ <span class="text-muted"> মুহম্মদ জাফর ইকবাল</span></h3>
+            <p class="lead">সি.এস.ই ২০১২ সালের ছেলেমেয়েরা পাশ করে চলে যাচ্ছে - বিষয়টি একদিক থেকে আনন্দের - তারা ছাত্রজীবন শেষ করে আনন্দময় কর্ম জীবনে প্রবেশ করতে যাচ্ছে।
                 আবার এটা অস্বীকার করার উপায় নেই যে জীবনের সবচেয়ে আনন্দময় সময়টুকু হচ্ছে ছাত্রজীবন! সেই জীবন শেষ হয়ে যাচ্ছে সে জন্যে তাদের জন্যে একটুখানি সমবেদনা।</p>
         </div>
         <div class="col-md-3 order-md-1">
@@ -227,9 +227,9 @@ Time in Khulia Para, Sylhet
 
                 I had a great experience with them both in class and out of the classes. The whole batch amazed me a lot.
                 In my 20 years of teaching experience both at SUST and abroad, this batch is one of the best batches in life.
-                I am confident that all of them will do great in my their respective field in future.
+                I am confident that all of them will do great in their respective field in future.
                 Usually, in every batch we find few students are doing great in terms of everything.
-                This batch is totally different. Almost all of them are awesome as a human being. I am so proud of you all. I wish your very good luck.
+                This batch is totally different. Almost all of them are awesome as a human being. I am so proud of you all. I wish you very good luck.
                 <br>
                 But, I cannot forget one tragic event that happened in that batch. Yes, I am talking about Niloy Md Azam. He was one of my favorite students.
                 He drowned in the university pond. I was the acting Head on that day and I had to inform his parents about this accident.
@@ -247,12 +247,12 @@ Time in Khulia Para, Sylhet
     <div class="row featurette">
         <div class="col-md-9 order-md-1">
             <h3 class="featurette-heading">... <span class="text-muted"> মেহরুবা শারমিন চৌধুরী</span></h3>
-            <p class="lead">আমি কি আর লিখতে জানি, কবু লিখতে হচ্ছে। নতুন করে সুভেনির বের হচ্ছে, বের করেছে ২০১২ ব্যাচ। তাদের সব কিছুতেই আগ্রহ, সব কিছুতেই নতুনত্ব।
+            <p class="lead">আমি কি আর লিখতে জানি, তবু লিখতে হচ্ছে। নতুন করে সুভেনির বের হচ্ছে, বের করেছে ২০১২ ব্যাচ। তাদের সব কিছুতেই আগ্রহ, সব কিছুতেই নতুনত্ব।
                 এই সেদিন, চলে যাওয়ার কিছুদিন আগেও রক্তদান কর্মসূচীতে তাদের নেতৃত্ব-মুগ্ধ করে আমাদের। শুধু কি তাই?<br>
                 সব ব্যাচই কিছু না কিছু করে, ওরাও করেছে। তার উপর সব শিক্ষকের প্রতি ওদের শ্রদ্ধাবোধও একটু বেশি। আমি ওদের দুটি কোর্স নিয়েছি।
-                কোন শিক্ষক মাইক্রোসেসর নিতে চাইল না দেখে ওটা এসে পড়লাে আমার ঘাড়ে মিটিং এ অনুপস্থিত থাকার অপরাধে।
-                ছাত্র জীবনে এই কোর্স আমারও ভাল লাগত না। বুয়েটের একজন শিক্ষক আমাদের পড়াতেন। কেউ বুঝত না, কিন্তু মুখ চোখে স্তাকিয়ে থাকত কারন স্যার খুব সুদর্শন ছিলেন।
-                কোর্সটিতে আমি ওদের গিনিপিফ বানিয়েছি আর মনে মনে ভেবেছি -"আহা, আমি ওদের মনের মত করে পড়াতেও পারছি মা, আবার আমি স্যারের মতও নই যে ওরা আমার পড়ায় মুগ্ধ হয়ে তাকিয়ে থাকৰে।"
+                কোন শিক্ষক মাইক্রোপ্রোসেসর নিতে চাইল না দেখে ওটা এসে পড়লাে আমার ঘাড়ে মিটিং এ অনুপস্থিত থাকার অপরাধে।
+                ছাত্র জীবনে এই কোর্স আমারও ভাল লাগত না। বুয়েটের একজন শিক্ষক আমাদের পড়াতেন। কেউ বুঝত না, কিন্তু মুগ্ধ চোখে তাকিয়ে থাকত কারন স্যার খুব সুদর্শন ছিলেন।
+                কোর্সটিতে আমি ওদের গিনিপিগ বানিয়েছি আর মনে মনে ভেবেছি -"আহা, আমি ওদের মনের মত করে পড়াতেও পারছি মা, আবার আমি স্যারের মতও নই যে ওরা আমার পড়ায় মুগ্ধ হয়ে তাকিয়ে থাকৰে।"
                 তবুও তারা মুগ্ধ হয়ে তাকিয়ে থাকার অভিনয় করে, আমাকে হতাশ করে না। তবে আগের কোর্সটা ভাল পড়িয়েছিলাম বলেই হয়ত "কোন টিচারের পড়া তোমাদের ভাল লাগে- সেই অনুযায়ী রেটিং কর" এ ধরনের
                 একটা রেটিএ ২-৪ এর মধ্যে রেখেছিল আমাকে ৮০% ছাত্র-ছাত্রী। এতোগুলো সেমিস্টারে এতে শিক্ষকের মধ্যে আমার স্থান ২-৪। কম? উহু। অনেক সম্মানিত স্যারের ও উপরে। এটা কি এমনি এমনি এসেছে? ওরা আমাকে দিয়েছে তাই আমিও দেবার চেষ্টা করেছি।</p>
         </div>
@@ -263,11 +263,61 @@ Time in Khulia Para, Sylhet
 
     <hr class="featurette-divider">
 
+    <div class="row featurette">
+        <div class="col-md-9 order-md-2">
+            <h3 class="featurette-heading">...  <span class="text-muted">Sadia Sultana </span></h3>
+            <p class="lead">I wish you all Good Luck for the next stage of your life. You all are young, brilliant and enthusiastic.
+                With no doubt I can say that you are able to face new challenges with honesty and continue to have success in all areas of your life.
+            </p>
+        </div>
+        <div class="col-md-3 order-md-1">
+            <img src="{{ asset('photos/sadia_mam.png') }}" class="rounded-circle img-responsive" style="width: 185px;">
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+        <div class="col-md-9 order-md-1">
+            <h3 class="featurette-heading">... <span class="text-muted"> আয়েশা তাসনিম</span></h3>
+            <p class="lead">সিএসই পরিবারের ২০১২ ব্যাচ সাফল্যের সাথে বিশ্ববিদ্যালয়ের গন্ডি পেরোচ্ছে, খুবই আনন্দের কথা (দিব্যচক্ষে অনেক মিষ্টি দেখতে পাচ্ছি)।
+            তোমাদেরকে অনেক অনেক অভিনন্দন। <br>
+            আমি জানি তোমরা সবাই অনেক ভালো ভালো জায়গায় নিজের অবস্থানটুকু নিশ্চিত করে নেবে তাড়াতাড়িই। সাফল্যের পথে ছুটে চলার সময় জীবনের সহজ সাধারণ বিষয়গুলোর মাহে মিশে
+            থাকা সুখগুলো উপভোগ করতে ভুলে যেও না, মাঝে মাঝে চোখ তুলে আকাশের দিকে তাকিও। আর মনে রেখো ভালত্রের চর্চা করতে হয়- চিন্তা ভাবনায়, চলাফেরায়, কথা বার্তায়।
+            আমি তোমাদের এইটুকুই বলবো বুকের ভেতর ভালোটুকু পুষে রেখো, ছড়িয়ে দিও।<br>
+            তোমদের সঙ্গে নেওয়া কোর্সটাতে আমার অনেক ঘাটতি ছিল- তোমাদের যা পাওয়ার ছিল তার অনেকটুকুই আমি দিতে পারিনি, সে জন্য আমি আন্তরিক ভাবে দুঃখিত।
+            <br>সবাই খুব ভাল থেকো, তোমাদের জীবন মঙ্গলময় হোক।</p>
+        </div>
+        <div class="col-md-3 order-md-2">
+            <img src="{{ asset('photos/ayesha_mam.jpg') }}" class="rounded-circle img-responsive" style="width: 185px;">
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+        <div class="col-md-9 order-md-2">
+            <h3 class="featurette-heading">...  <span class="text-muted">Md Mahfuzur Rahman</span></h3>
+            <p class="lead">I'm so happy to learn about your decision of publishing souvenir in this event to make it memorable.
+                I think you're the 21st Batch of CSE, SUST. Although I've not taken any courses with you, but think I've got enough opportunities to interact with this batch in different events.
+                <br>
+                You were here for only four and half years. It feels like you've come here a few days ago. But you've passed a great time here. You've learnt a lot within these days.
+                I wish that you all will achieve success using your earned knowledge in your professional life and reach great heights that help you in your career.
+                <br>
+                You have been an excellent batch and have carried forward the reputation of our department as well as our university by graduating with excellent grades.
+                We have to bid you farewell but the good part is it is time for you to prove your worth to the world.<br>
+                You are the future of our country. I wish you best of luck.</p>
+        </div>
+        <div class="col-md-3 order-md-1">
+            <img src="{{ asset('photos/mahfuz_sir.jpg') }}" class="rounded-circle img-responsive" style="width: 185px;">
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
+
     <!-- /END THE FEATURETTES -->
 
 </div>
-
-
 
 
 
