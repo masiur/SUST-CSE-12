@@ -6,7 +6,7 @@ Route::get('/ff', function () {
     return \Illuminate\Support\Facades\Cache::flush();
 });
 
- Route::get('/ff', function () {
+ Route::get('/gg', function () {
      return \Illuminate\Support\Facades\Cache::get('country_livings');
  });
 
