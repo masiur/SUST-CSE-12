@@ -181,7 +181,7 @@ class ProfileController extends Controller
             Cache::put('users', $usersFromDb,  3*24*60); // 3 days
             $users = $usersFromDb;
         }
-        $counter = 1;
+        $counter = 0;
         foreach ($users as $user) {
             echo "<i>".$user->registration_no."</i><br>"; // reg
             echo $user->name."<br>"; // name
