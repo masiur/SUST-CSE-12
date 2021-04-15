@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Model\Profile;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProfileRequest;
+use Illuminate\Support\Facades\Cache;
 use View;
 use Redirect;
 use App\Http\Requests;
@@ -174,32 +175,46 @@ class ProfileController extends Controller
 
     public function rawdata()
     {
-         
-        // Profile::create(['user_id'=> 1]);
-        // Profile::create(['user_id'=> 2]);
-        // Profile::create(['user_id'=> 3]);
-
-        $csv = array_map('str_getcsv', file(public_path('upload/data.csv')));
-        foreach ($csv as $key => $value) {
-            if ($key != 0) {
-
-                 // This code was to test that this works or not 
-                // echo "<center>";
-                echo "<i>".$value[0]."</i><br>"; // reg
-                echo $value[1]."<br>"; // email
-                echo $value[2]."<br>"; // sustmail
-                echo  "<strong>".$value[3]." ".$value[4]."</strong><br>";; // firstname & firstname
-                // echo $value[4]."<br>"; // lastname 
-                echo $value[5]."<br>"; // mobile
-                echo $value[6]."<br>"; // dept
-                echo $value[7]."<br>"; // sesion
-                // echo $value[8]."<br>";
-                // echo "</center>";
-                echo "<hr>";
-            }  
-
-              
+        $users = Cache::has('users') ? Cache::get('users') : null;
+        if(is_null($users)) {
+            $usersFromDb = User::all();
+            Cache::put('users', $usersFromDb,  3*24*60); // 3 days
+            $users = $usersFromDb;
         }
+        $counter = 1;
+        foreach ($users as $user) {
+            echo "<i>".$user->registration_no."</i><br>"; // reg
+            echo $user->name."<br>"; // name
+            echo $user->email."<br>";
+            echo $user->sust_mail."<br>";
+            echo $user->phone."<br>";
+            echo $user->dob."<br>";
+            echo "<hr>";
+            $counter++;
+        }
+        echo "Total: ".$counter;
+//
+//        $csv = array_map('str_getcsv', file(public_path('upload/data.csv')));
+//        foreach ($csv as $key => $value) {
+//            if ($key != 0) {
+//
+//                 // This code was to test that this works or not
+//                // echo "<center>";
+//                echo "<i>".$value[0]."</i><br>"; // reg
+//                echo $value[1]."<br>"; // email
+//                echo $value[2]."<br>"; // sustmail
+//                echo  "<strong>".$value[3]." ".$value[4]."</strong><br>";; // firstname & firstname
+//                // echo $value[4]."<br>"; // lastname
+//                echo $value[5]."<br>"; // mobile
+//                echo $value[6]."<br>"; // dept
+//                echo $value[7]."<br>"; // sesion
+//                // echo $value[8]."<br>";
+//                // echo "</center>";
+//                echo "<hr>";
+//            }
+//
+//
+//        }
 
         // $students = [ 
         //                 '2012331002',

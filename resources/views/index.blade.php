@@ -41,8 +41,8 @@ Time in Khulia Para, Sylhet
 
     <style>
         .carousel-item {
-            height: 100vh;
-            min-height: 300px;
+            max-height: 100vh;
+            min-height: 250px;
             background: no-repeat center center scroll;
             -webkit-background-size: cover;
             -moz-background-size: cover;
@@ -156,6 +156,7 @@ Time in Khulia Para, Sylhet
             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -180,12 +181,17 @@ Time in Khulia Para, Sylhet
                 </div>
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="/../img/slider4.jpg" alt="Third slide">
+                <img class="d-block w-100" src="/../img/slider4.jpg" alt="Fourth slide">
                 <div class="carousel-caption d-none d-md-block">
                 </div>
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="/../img/slider5.jpg" alt="Third slide">
+                <img class="d-block w-100" src="/../img/slider5.jpg" alt="Fifth slide">
+                <div class="carousel-caption d-none d-md-block">
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="/../img/slider7.jpg" alt="Sixth slide">
                 <div class="carousel-caption d-none d-md-block">
                 </div>
             </div>
@@ -205,7 +211,7 @@ Time in Khulia Para, Sylhet
 </div>
 
 
-<footer class="footer ">
+<footer class="footer py-3 mt-auto">
     <div class="container">
         <div class="row">
             <div class="float-left col col-sm-4 px-4">

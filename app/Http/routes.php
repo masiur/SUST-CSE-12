@@ -6,9 +6,9 @@ Route::get('/ff', function () {
     return \Illuminate\Support\Facades\Cache::flush();
 });
 
- Route::get('/gg', function () {
-     return \Illuminate\Support\Facades\Cache::get('country_livings');
- });
+// Route::get('/gg', function () {
+//     return \Illuminate\Support\Facades\Cache::get('users');
+// });
 
 Route::get('/home', ['as' => 'home2', 'uses' => 'HomeController@index2']); 
 Route::get('/we', ['as' => 'we', 'uses' => 'HomeController@profile']);  
