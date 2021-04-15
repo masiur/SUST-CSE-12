@@ -5,11 +5,9 @@ use App\Model\CountryLiving;
 use Auth;
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
 use App\Model\Notice;
-use App\Http\Controllers\Controller;
+
 use App\Model\User;
-use App\Model\Skill;
 use Illuminate\Support\Facades\Cache;
 
 class HomeController extends Controller
