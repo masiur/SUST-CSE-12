@@ -151,11 +151,11 @@ Time in Khulia Para, Sylhet
                 <h3>This Site was made possible by the contribution of the following:</h3>
                 <br>
                 <ul style="font-style: italic">
-                    <li>Masiur Rahman Siddiki</li>
-                    <li>Abu Hanife Nayeem</li>
-                    <li>Asif Mohaimen Saumik</li>
-                    <li>Jahid Hasan Polash</li>
-                    <li>Md Abu Talha</li>
+                    <li><a target="_blank" href="http://www.MasiurSiddiki.com/">Masiur Rahman Siddiki</a></li>
+                    <li><a target="_blank" href="https://www.linkedin.com/in/abu-hanife-nayem-8a9b03119/">Abu Hanife Nayeem</a></li>
+                    <li><a target="_blank" href="https://asifmohai.men/">Asif Mohaimen Saumik</a></li>
+                    <li><a target="_blank" href="https://polash.sustcse12.xyz/">Jahid Hasan Polash</a></li>
+                    <li><a target="_blank" href="https://talha08.github.io/">Md Abu Talha</a></li>
                 </ul>
                 <br>
                 <h4>Maintainer: <i>Masiur Rahman Siddiki</i></h4>

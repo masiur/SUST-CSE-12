@@ -2,7 +2,7 @@
  // use App\User;
 
 Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
-Route::get('/ff', function () {
+Route::get('/flush', function () {
     return \Illuminate\Support\Facades\Cache::flush();
 });
 
@@ -11,7 +11,7 @@ Route::get('/ff', function () {
 // });
 
 Route::get('/home', ['as' => 'home2', 'uses' => 'HomeController@index2']); 
-Route::get('/we', ['as' => 'we', 'uses' => 'HomeController@profile']);  
+
 Route::get('about', ['as' => 'about', 'uses' => 'HomeController@about']);
 Route::get('credit', ['as' => 'credit', 'uses' => 'HomeController@credit']);
 
@@ -20,10 +20,7 @@ Route::post('file/share/store', ['as' => 'file.share.store', 'uses' => 'ToolCont
 Route::get('file/share/show', ['as' => 'file.share.show', 'uses' => 'ToolController@show']);
 Route::get('share/{id}', ['as' => 'file.share.download', 'uses' => 'ToolController@download']);
 
-// cv profile code 
 
-Route::get('/profile/{username}', ['as' => 'cvProfile1', 'uses' => 'HomeController@cvProfile']);
-Route::get('/me/{username}', ['as' => 'cvProfile', 'uses' => 'HomeController@cvProfile']);
 
 // cv profile code 
 
@@ -130,8 +127,21 @@ Route::group(array('middleware' => 'auth'), function()
 
 	Route::put('cvstore', array('as' => 'cv.store', 'uses' => 'ProfileController@cvUpload'));
 
-	Route::get('data', array('as' => 'rawdata', 'uses' => 'ProfileController@rawdata'));
+    //web engineering
+    Route::get('web',['as' => 'web.index', 'uses' => 'WebengController@index']);
+    Route::get('web/create',['as' => 'web.create', 'uses' => 'WebengController@create']);
+    Route::post('web',['as' => 'web.store', 'uses' => 'WebengController@store']);
+    Route::get('web/{id}/edit',['as' => 'web.edit', 'uses' => 'WebengController@edit']);
+    Route::get('web/show',['as' => 'web.show', 'uses' => 'WebengController@show']);
+    Route::put('web/{id}',['as' => 'web.update', 'uses' => 'WebengController@update']);
+    Route::delete('web/{id}',['as' => 'web.delete', 'uses' => 'WebengController@destroy']);
 
+	Route::get('data', array('as' => 'rawdata', 'uses' => 'ProfileController@rawdata'));
+    // cv profile code
+
+    Route::get('/profile/{username}', ['as' => 'cvProfile1', 'uses' => 'HomeController@cvProfile']);
+    Route::get('/me/{username}', ['as' => 'cvProfile', 'uses' => 'HomeController@cvProfile']);
+    Route::get('/we', ['as' => 'we', 'uses' => 'HomeController@profile']);
 
 });
 
@@ -140,14 +150,7 @@ Route::group(array('middleware' => 'auth'), function()
 
 
 
-//web engineering
-Route::get('web',['as' => 'web.index', 'uses' => 'WebengController@index']);
-Route::get('web/create',['as' => 'web.create', 'uses' => 'WebengController@create']);
-Route::post('web',['as' => 'web.store', 'uses' => 'WebengController@store']);
-Route::get('web/{id}/edit',['as' => 'web.edit', 'uses' => 'WebengController@edit']);
-Route::get('web/show',['as' => 'web.show', 'uses' => 'WebengController@show']);
-Route::put('web/{id}',['as' => 'web.update', 'uses' => 'WebengController@update']);
-Route::delete('web/{id}',['as' => 'web.delete', 'uses' => 'WebengController@destroy']);
+
 
 
 
@@ -163,33 +166,31 @@ Route::delete('web/{id}',['as' => 'web.delete', 'uses' => 'WebengController@dest
 
 
 
-
- Route::get ( '/csv', function () {
-
-     if (($handle = fopen ( public_path () . '/top500.csv', 'r' )) !== FALSE) {
-         while ( ($data = fgetcsv ( $handle, 1000, ',' )) !== FALSE ) {
-
-             $score = \App\Model\Score::where('url',$data [1])->first();
-
-            if(empty($score)){
-                $csv_data = new  \App\Model\Score();
-                $csv_data->url = $data [1];
-                $csv_data->score_four = rand(30,50);
-                $csv_data->score_five =  rand(1,4);
-                $csv_data->score_three = rand(1,5);
-                $csv_data->score_two = rand(1,3);
-                $csv_data->score_one = 0;
-                $csv_data->rscore = mt_rand( 40, 50 ) / 10;
-                $csv_data->save ();
-            }
-         }
-         fclose ( $handle );
-     }
-
-    return  "done";
- } );
-
-
+//
+// Route::get ( '/csv', function () {
+//
+//     if (($handle = fopen ( public_path () . '/top500.csv', 'r' )) !== FALSE) {
+//         while ( ($data = fgetcsv ( $handle, 1000, ',' )) !== FALSE ) {
+//
+//             $score = \App\Model\Score::where('url',$data [1])->first();
+//
+//            if(empty($score)){
+//                $csv_data = new  \App\Model\Score();
+//                $csv_data->url = $data [1];
+//                $csv_data->score_four = rand(30,50);
+//                $csv_data->score_five =  rand(1,4);
+//                $csv_data->score_three = rand(1,5);
+//                $csv_data->score_two = rand(1,3);
+//                $csv_data->score_one = 0;
+//                $csv_data->rscore = mt_rand( 40, 50 ) / 10;
+//                $csv_data->save ();
+//            }
+//         }
+//         fclose ( $handle );
+//     }
+//
+//    return  "done";
+// } );
 
 
 
@@ -200,27 +201,29 @@ Route::delete('web/{id}',['as' => 'web.delete', 'uses' => 'WebengController@dest
 
 
 
- Route::get ( '/dataUpdate', function () {
-     $datas = \App\Model\Score::all();
-      foreach ($datas as $data){
-          $data = \App\Model\Score::where('id', $data->id)->first();
-          $str2 = urldecode($data->url);
-          $u = preg_replace('#^https?://#', '', rtrim($str2,'/'));
-          $domain = preg_replace('/^www\./', '', $u);
-          $data->url = $domain;
-          $data->save();
-      }
- } );
 
-
-
-
- Route::get ( '/dat', function () {
-          $url = 'http://google.com/dhasjkdas/sadsdds/sdda/sdads.html';
-             $url_info = parse_url($url);
-             return   $domain = $url_info['host'];
-
- } );
+//
+// Route::get ( '/dataUpdate', function () {
+//     $datas = \App\Model\Score::all();
+//      foreach ($datas as $data){
+//          $data = \App\Model\Score::where('id', $data->id)->first();
+//          $str2 = urldecode($data->url);
+//          $u = preg_replace('#^https?://#', '', rtrim($str2,'/'));
+//          $domain = preg_replace('/^www\./', '', $u);
+//          $data->url = $domain;
+//          $data->save();
+//      }
+// } );
+//
+//
+//
+//
+// Route::get ( '/dat', function () {
+//          $url = 'http://google.com/dhasjkdas/sadsdds/sdda/sdads.html';
+//             $url_info = parse_url($url);
+//             return   $domain = $url_info['host'];
+//
+// } );
 
 
 
